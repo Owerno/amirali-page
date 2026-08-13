@@ -2,481 +2,2828 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Amirali Asghari</title>
+<meta charset="UTF-8">
 
-    <style>
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta name="theme-color" content="#020711">
 
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at 50% 20%, #003b70 0%, transparent 30%),
-                radial-gradient(circle at 10% 80%, #001b38 0%, transparent 30%),
-                #03070d;
+<title>Amirali Asghari | Digital Card</title>
 
-            color: white;
-            font-family: Arial, sans-serif;
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-            display: flex;
-            justify-content: center;
+<style>
 
-            overflow-x: hidden;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        /* افکت نور پس زمینه */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
+html{
+    scroll-behavior:smooth;
+}
 
-            background: #008cff;
-            filter: blur(180px);
-            opacity: 0.12;
+body{
 
-            top: 10%;
-            left: 50%;
+    min-height:100vh;
 
-            transform: translateX(-50%);
+    background:#01040a;
 
-            pointer-events: none;
-        }
+    color:#fff;
 
-        .container {
-            width: 100%;
-            max-width: 480px;
+    font-family:
+        Arial,
+        sans-serif;
 
-            padding: 45px 20px 35px;
+    overflow-x:hidden;
 
-            text-align: center;
+}
 
-            position: relative;
-            z-index: 2;
-        }
 
-        /* عکس پروفایل */
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
-        .profile {
-            width: 145px;
-            height: 145px;
+#universe{
 
-            margin: 0 auto 20px;
+    position:fixed;
 
-            border-radius: 50%;
+    inset:0;
 
-            padding: 5px;
+    overflow:hidden;
 
-            background: linear-gradient(
-                135deg,
-                #00aaff,
-                #006eff,
-                #00d9ff
-            );
+    z-index:0;
 
-            box-shadow:
-                0 0 20px #008cff,
-                0 0 60px rgba(0, 140, 255, 0.5);
-        }
+    background:
 
-        .profile img {
-            width: 100%;
-            height: 100%;
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(0,150,255,.22),
+            transparent 28%
+        ),
 
-            object-fit: cover;
+        radial-gradient(
+            circle at 0% 80%,
+            rgba(0,70,255,.18),
+            transparent 30%
+        ),
 
-            border-radius: 50%;
+        radial-gradient(
+            circle at 100% 70%,
+            rgba(0,220,255,.12),
+            transparent 28%
+        ),
 
-            border: 4px solid #03070d;
-        }
+        #01040a;
 
-        /* اسم */
+}
 
-        h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
 
-            letter-spacing: 1px;
-        }
+/* =========================================================
+   GLOW ORBS
+========================================================= */
 
-        h1 span {
-            color: #00aaff;
+.orb{
 
-            text-shadow:
-                0 0 10px #008cff,
-                0 0 25px rgba(0, 140, 255, 0.6);
-        }
+    position:absolute;
 
-        .subtitle {
-            color: #aaa;
-            font-size: 15px;
+    border-radius:50%;
 
-            letter-spacing: 4px;
+    filter:blur(80px);
 
-            margin-bottom: 35px;
-        }
+    pointer-events:none;
 
-        .line {
-            width: 70px;
-            height: 3px;
+    mix-blend-mode:screen;
 
-            background: #00aaff;
+}
 
-            margin: 0 auto 30px;
+.orb1{
 
-            border-radius: 20px;
+    width:320px;
+    height:320px;
 
-            box-shadow: 0 0 15px #008cff;
-        }
+    background:#006cff;
 
-        /* دکمه ها */
+    top:-120px;
+    left:-100px;
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
+    animation:
+        orb1 12s infinite alternate ease-in-out;
 
-            gap: 15px;
-        }
+}
 
-        .btn {
-            width: 100%;
+.orb2{
 
-            min-height: 78px;
+    width:280px;
+    height:280px;
 
-            display: flex;
-            align-items: center;
+    background:#00c8ff;
 
-            padding: 12px 18px;
+    right:-120px;
+    top:35%;
 
-            text-decoration: none;
-            color: white;
+    animation:
+        orb2 15s infinite alternate ease-in-out;
 
-            border-radius: 20px;
+}
 
-            background:
-                linear-gradient(
-                    110deg,
-                    rgba(0, 94, 170, 0.45),
-                    rgba(2, 15, 30, 0.9)
-                );
+.orb3{
 
-            border: 1px solid rgba(0, 174, 255, 0.7);
+    width:350px;
+    height:350px;
 
-            box-shadow:
-                0 0 12px rgba(0, 153, 255, 0.25),
-                inset 0 0 20px rgba(0, 140, 255, 0.08);
+    background:#002eff;
 
-            transition: all 0.25s ease;
+    bottom:-220px;
+    left:20%;
 
-            direction: rtl;
-        }
+    animation:
+        orb3 18s infinite alternate ease-in-out;
 
-        .btn:hover {
-            transform: translateY(-4px) scale(1.015);
+}
 
-            border-color: #00c8ff;
+@keyframes orb1{
 
-            box-shadow:
-                0 0 20px rgba(0, 174, 255, 0.7),
-                0 0 50px rgba(0, 140, 255, 0.25);
+    to{
+        transform:
+            translate(180px,230px)
+            scale(1.35);
+    }
 
-            background:
-                linear-gradient(
-                    110deg,
-                    rgba(0, 130, 230, 0.65),
-                    rgba(2, 20, 40, 0.95)
-                );
-        }
+}
 
-        .icon {
-            width: 50px;
-            height: 50px;
+@keyframes orb2{
 
-            flex-shrink: 0;
+    to{
+        transform:
+            translate(-170px,120px)
+            scale(1.4);
+    }
 
-            border-radius: 50%;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+@keyframes orb3{
 
-            background: linear-gradient(
-                135deg,
-                #00b7ff,
-                #006eff
-            );
+    to{
+        transform:
+            translate(100px,-150px)
+            scale(1.4);
+    }
 
-            box-shadow:
-                0 0 15px rgba(0, 174, 255, 0.7);
+}
 
-            font-size: 23px;
 
-            margin-left: 15px;
-        }
+/* =========================================================
+   GRID
+========================================================= */
 
-        .text {
-            flex: 1;
-            text-align: right;
-        }
+.grid{
 
-        .text strong {
-            display: block;
+    position:absolute;
 
-            font-size: 18px;
+    inset:-20%;
 
-            margin-bottom: 5px;
-        }
+    opacity:.12;
 
-        .text small {
-            color: #b9c7d5;
+    background-image:
 
-            font-size: 13px;
+        linear-gradient(
+            rgba(0,170,255,.4) 1px,
+            transparent 1px
+        ),
 
-            direction: ltr;
-            display: block;
-        }
+        linear-gradient(
+            90deg,
+            rgba(0,170,255,.4) 1px,
+            transparent 1px
+        );
 
-        .arrow {
-            font-size: 30px;
-            color: #70d7ff;
+    background-size:45px 45px;
 
-            margin-right: 8px;
-        }
+    transform:
+        perspective(450px)
+        rotateX(60deg)
+        scale(1.4);
 
-        /* پایین صفحه */
+    transform-origin:center bottom;
 
-        .follow {
-            margin-top: 40px;
-        }
+    animation:
+        gridMove 10s linear infinite;
 
-        .follow-title {
-            color: #ddd;
-            font-size: 18px;
+}
 
-            margin-bottom: 18px;
-        }
+@keyframes gridMove{
 
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-        }
+    to{
+        background-position:
+            0 45px,
+            45px 0;
+    }
 
-        .social {
-            width: 52px;
-            height: 52px;
+}
 
-            border-radius: 50%;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+/* =========================================================
+   SCANLINES
+========================================================= */
 
-            color: white;
-            text-decoration: none;
+.scanlines{
 
-            border: 1px solid #009dff;
+    position:fixed;
 
-            background: #061322;
+    inset:0;
 
-            font-size: 20px;
+    z-index:3;
 
-            box-shadow:
-                0 0 12px rgba(0, 150, 255, 0.35);
+    pointer-events:none;
 
-            transition: 0.25s;
-        }
+    opacity:.08;
 
-        .social:hover {
-            transform: scale(1.15);
+    background:
 
-            background: #008cff;
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(0,180,255,.25) 4px
+        );
 
-            box-shadow:
-                0 0 25px #008cff;
-        }
+}
 
-        /* مخصوص موبایل */
 
-        @media (max-width: 500px) {
+/* =========================================================
+   STARS
+========================================================= */
 
-            .container {
-                padding: 35px 15px 30px;
-            }
+#stars{
 
-            .profile {
-                width: 125px;
-                height: 125px;
-            }
+    position:absolute;
 
-            h1 {
-                font-size: 29px;
-            }
+    inset:0;
 
-            .btn {
-                min-height: 72px;
-            }
+}
 
-            .icon {
-                width: 45px;
-                height: 45px;
-            }
-        }
+.star{
 
-    </style>
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 7px #00bfff,
+        0 0 16px #008cff;
+
+    animation:
+        starFall linear infinite;
+
+}
+
+@keyframes starFall{
+
+    from{
+
+        transform:
+            translateY(110vh)
+            scale(.2);
+
+        opacity:0;
+
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:
+            translateY(50vh)
+            scale(1.5);
+    }
+
+    to{
+
+        transform:
+            translateY(-10vh)
+            scale(.2);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   METEORS
+========================================================= */
+
+.meteor{
+
+    position:absolute;
+
+    width:120px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00c8ff,
+            white
+        );
+
+    box-shadow:
+        0 0 10px #00bfff,
+        0 0 25px #008cff;
+
+    transform:rotate(-35deg);
+
+    opacity:0;
+
+    animation:
+        meteor 8s linear infinite;
+
+}
+
+.meteor1{
+    top:10%;
+    left:80%;
+    animation-delay:2s;
+}
+
+.meteor2{
+    top:35%;
+    left:30%;
+    animation-delay:6s;
+}
+
+.meteor3{
+    top:60%;
+    left:90%;
+    animation-delay:10s;
+}
+
+@keyframes meteor{
+
+    0%,75%{
+        opacity:0;
+        transform:
+            translate(0,0)
+            rotate(-35deg);
+    }
+
+    78%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(-500px,500px)
+            rotate(-35deg);
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH LIGHT
+========================================================= */
+
+.touch-light{
+
+    position:fixed;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:4;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,200,255,.20),
+            transparent 65%
+        );
+
+    filter:blur(12px);
+
+    transition:
+        left .12s ease,
+        top .12s ease;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:480px;
+
+    margin:auto;
+
+    padding:
+        48px 15px 45px;
+
+    position:relative;
+
+    z-index:10;
+
+    text-align:center;
+
+    transition:
+        transform .2s ease;
+
+}
+
+
+/* =========================================================
+   TOP HUD
+========================================================= */
+
+.top-hud{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    font-size:10px;
+
+    color:#5e91ad;
+
+    letter-spacing:2px;
+
+}
+
+.hud-left,
+.hud-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+}
+
+.online-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#00ff9d;
+
+    box-shadow:
+        0 0 8px #00ff9d,
+        0 0 18px #00ff9d;
+
+    animation:
+        pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+    50%{
+        opacity:.35;
+        transform:scale(.7);
+    }
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-zone{
+
+    width:180px;
+    height:180px;
+
+    margin:
+        0 auto 25px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+.profile-zone::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(0,200,255,.65);
+
+    box-shadow:
+        0 0 20px rgba(0,170,255,.5);
+
+    animation:
+        spin 8s linear infinite;
+
+}
+
+.profile-zone::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-25px;
+
+    border-radius:50%;
+
+    border:
+        1px dashed rgba(0,150,255,.28);
+
+    animation:
+        spinReverse 15s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes spinReverse{
+
+    to{
+        transform:rotate(-360deg);
+    }
+
+}
+
+.profile{
+
+    width:155px;
+    height:155px;
+
+    padding:5px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00ffff,
+            #0077ff,
+            #0055ff,
+            #00c8ff
+        );
+
+    background-size:400% 400%;
+
+    animation:
+        gradient 4s ease infinite;
+
+    box-shadow:
+
+        0 0 20px #008cff,
+        0 0 60px rgba(0,140,255,.6),
+        0 0 110px rgba(0,140,255,.25);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+@keyframes gradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+.profile img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:
+        4px solid #01040a;
+
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+h1{
+
+    font-size:34px;
+
+    margin-bottom:8px;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,.15);
+
+}
+
+h1 span{
+
+    color:#00c8ff;
+
+    text-shadow:
+        0 0 10px #00c8ff,
+        0 0 30px #008cff,
+        0 0 60px rgba(0,140,255,.6);
+
+}
+
+.subtitle{
+
+    color:#7f9aac;
+
+    letter-spacing:5px;
+
+    font-size:12px;
+
+    margin-bottom:18px;
+
+}
+
+.line{
+
+    width:100px;
+    height:2px;
+
+    margin:
+        0 auto 28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00c8ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #008cff;
+
+    animation:
+        linePulse 2s infinite alternate;
+
+}
+
+@keyframes linePulse{
+
+    to{
+        width:170px;
+        box-shadow:
+            0 0 30px #00bfff;
+    }
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    min-height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        11px 17px;
+
+    border-radius:21px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(0,105,190,.32),
+            rgba(2,12,25,.72)
+        );
+
+    border:
+        1px solid rgba(0,180,255,.5);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        0 0 15px rgba(0,140,255,.13),
+
+        inset 0 0 25px rgba(0,140,255,.05);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border .25s ease;
+
+    animation:
+        buttonIn .7s ease both;
+
+}
+
+.btn:nth-child(1){animation-delay:.1s}
+.btn:nth-child(2){animation-delay:.2s}
+.btn:nth-child(3){animation-delay:.3s}
+.btn:nth-child(4){animation-delay:.4s}
+.btn:nth-child(5){animation-delay:.5s}
+
+@keyframes buttonIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(30px)
+            scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* shine */
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:250%;
+
+    left:-150px;
+
+    top:-70%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transform:rotate(20deg);
+
+    transition:.8s;
+
+}
+
+.btn:hover::before{
+    left:130%;
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.015);
+
+    border-color:#00d9ff;
+
+    box-shadow:
+
+        0 0 25px rgba(0,190,255,.5),
+        0 0 60px rgba(0,140,255,.2),
+
+        inset 0 0 30px rgba(0,180,255,.1);
+
+}
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+.icon{
+
+    width:50px;
+    height:50px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-left:14px;
+
+    font-size:21px;
+
+    transition:.3s;
+
+}
+
+.btn:hover .icon{
+
+    transform:
+        scale(1.14)
+        rotate(-7deg);
+
+}
+
+.phone{
+    background:
+        linear-gradient(135deg,#00d9ff,#006eff);
+    box-shadow:0 0 18px rgba(0,180,255,.5);
+}
+
+.instagram{
+    background:
+        linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+    box-shadow:0 0 18px rgba(253,29,29,.3);
+}
+
+.telegram{
+    background:
+        linear-gradient(135deg,#2AABEE,#229ED9);
+    box-shadow:0 0 18px rgba(42,171,238,.5);
+}
+
+.whatsapp{
+    background:
+        linear-gradient(135deg,#25D366,#128C7E);
+    box-shadow:0 0 18px rgba(37,211,102,.4);
+}
+
+.email{
+    background:
+        linear-gradient(135deg,#00d9ff,#006eff);
+    box-shadow:0 0 18px rgba(0,180,255,.5);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.text{
+
+    flex:1;
+
+    text-align:right;
+
+}
+
+.text strong{
+
+    display:block;
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+.text small{
+
+    display:block;
+
+    direction:ltr;
+
+    color:#91aabd;
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.arrow{
+
+    color:#72ddff;
+
+    font-size:30px;
+
+    margin-right:7px;
+
+    transition:.3s;
+
+}
+
+.btn:hover .arrow{
+
+    transform:
+        translateX(-6px);
+
+    color:#fff;
+
+    text-shadow:
+        0 0 15px #00c8ff;
+
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.quick-btn{
+
+    border:
+        1px solid rgba(0,170,255,.35);
+
+    background:
+        rgba(2,18,32,.65);
+
+    color:#9ddfff;
+
+    border-radius:15px;
+
+    min-height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    font-size:11px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(12px);
+
+    transition:.25s;
+
+}
+
+.quick-btn:hover,
+.quick-btn:active{
+
+    background:
+        rgba(0,130,220,.35);
+
+    color:white;
+
+    box-shadow:
+        0 0 20px rgba(0,160,255,.3);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   NFC BOX
+========================================================= */
+
+.nfc{
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border-radius:18px;
+
+    border:
+        1px solid rgba(0,180,255,.25);
+
+    background:
+        rgba(2,15,27,.5);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    color:#6898af;
+
+    font-size:11px;
+
+}
+
+.nfc i{
+
+    color:#00c8ff;
+
+    animation:
+        nfcPulse 1.5s infinite;
+
+}
+
+@keyframes nfcPulse{
+
+    50%{
+        transform:scale(1.3);
+        filter:
+            drop-shadow(0 0 10px #00c8ff);
+    }
+
+}
+
+
+/* =========================================================
+   FOLLOW
+========================================================= */
+
+.follow{
+
+    margin-top:35px;
+
+}
+
+.follow-title{
+
+    color:#a8c0cf;
+
+    letter-spacing:2px;
+
+    margin-bottom:17px;
+
+    font-size:14px;
+
+}
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+.social{
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:
+        1px solid #008cff;
+
+    background:
+        rgba(3,18,32,.65);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 15px rgba(0,140,255,.25);
+
+    transition:.3s;
+
+}
+
+.social:hover{
+
+    transform:
+        translateY(-6px)
+        scale(1.12);
+
+    background:#008cff;
+
+    box-shadow:
+        0 0 25px #008cff;
+
+}
+
+
+/* =========================================================
+   CLOCK
+========================================================= */
+
+.clock{
+
+    margin-top:20px;
+
+    color:#4e7387;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    margin-top:25px;
+
+    color:#385266;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music{
+
+    position:fixed;
+
+    left:15px;
+
+    bottom:15px;
+
+    z-index:50;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:
+        1px solid #00aaff;
+
+    background:
+        rgba(2,15,28,.85);
+
+    color:#00c8ff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 0 20px rgba(0,150,255,.35);
+
+}
+
+.music.playing{
+
+    animation:
+        musicPulse 1s infinite alternate;
+
+}
+
+@keyframes musicPulse{
+
+    to{
+        box-shadow:
+            0 0 30px #00bfff,
+            0 0 60px rgba(0,140,255,.3);
+    }
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,3,8,.82);
+
+    backdrop-filter:
+        blur(15px);
+
+}
+
+.modal.show{
+    display:flex;
+}
+
+
+.modal-box{
+
+    width:100%;
+
+    max-width:390px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    border:
+        1px solid rgba(0,190,255,.6);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(0,50,90,.8),
+            rgba(2,8,18,.95)
+        );
+
+    box-shadow:
+
+        0 0 30px rgba(0,170,255,.35),
+        0 0 100px rgba(0,100,255,.15);
+
+    animation:
+        modalIn .35s ease;
+
+    position:relative;
+
+}
+
+@keyframes modalIn{
+
+    from{
+        opacity:0;
+        transform:
+            scale(.85)
+            translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+.close{
+
+    position:absolute;
+
+    top:12px;
+
+    left:15px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:1px solid #008cff;
+
+    background:#061522;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.modal-title{
+
+    color:#00c8ff;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+    text-shadow:
+        0 0 15px #008cff;
+
+}
+
+.modal-section{
+
+    margin-bottom:18px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:
+        rgba(0,100,180,.08);
+
+    border:
+        1px solid rgba(0,160,255,.18);
+
+}
+
+.modal-section strong{
+
+    display:block;
+
+    color:#7edfff;
+
+    margin-bottom:8px;
+
+}
+
+.modal-section p{
+
+    color:#9eb6c5;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   QR
+========================================================= */
+
+#qrcode{
+
+    width:220px;
+    height:220px;
+
+    margin:15px auto;
+
+    padding:10px;
+
+    background:white;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+}
+
+#qrcode img{
+
+    max-width:100%;
+
+}
+
+
+/* =========================================================
+   SECRET MODE
+========================================================= */
+
+.secret-mode{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:90;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,255,255,.03) 0px,
+            rgba(0,255,255,.03) 1px,
+            transparent 2px,
+            transparent 5px
+        );
+
+    transition:.4s;
+
+}
+
+body.secret .secret-mode{
+
+    opacity:1;
+
+}
+
+body.secret{
+
+    --secret:#00ffcc;
+
+}
+
+body.secret .container{
+
+    filter:
+        hue-rotate(45deg);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:500px){
+
+    .container{
+
+        padding:
+            42px 13px 35px;
+
+    }
+
+    .profile-zone{
+
+        width:145px;
+        height:145px;
+
+    }
+
+    .profile{
+
+        width:130px;
+        height:130px;
+
+    }
+
+    h1{
+
+        font-size:29px;
+
+    }
+
+    .btn{
+
+        min-height:72px;
+
+        border-radius:19px;
+
+    }
+
+    .icon{
+
+        width:45px;
+        height:45px;
+
+        margin-left:11px;
+
+    }
+
+    .text strong{
+
+        font-size:16px;
+
+    }
+
+    .text small{
+
+        font-size:10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
-    <main class="container">
 
-        <!-- عکس -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div id="universe">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <div class="grid"></div>
+
+    <div id="stars"></div>
+
+    <div class="meteor meteor1"></div>
+    <div class="meteor meteor2"></div>
+    <div class="meteor meteor3"></div>
+
+</div>
+
+<div class="scanlines"></div>
+
+<div class="touch-light"></div>
+
+<div class="secret-mode"></div>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container" id="card">
+
+
+    <!-- TOP HUD -->
+
+    <div class="top-hud">
+
+        <div class="hud-left">
+
+            <span class="online-dot"></span>
+
+            ONLINE
+
+        </div>
+
+
+        <div class="hud-right">
+
+            DIGITAL IDENTITY
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PROFILE -->
+
+    <div
+        class="profile-zone"
+        id="profile">
+
         <div class="profile">
-            <img src="profile.jpg" alt="Amirali Asghari">
-        </div>
 
-
-        <!-- اسم -->
-        <h1>
-            Amirali <span>Asghari</span>
-        </h1>
-
-        <div class="subtitle">
-            STAY CONNECTED
-        </div>
-
-        <div class="line"></div>
-
-
-        <!-- دکمه ها -->
-
-        <div class="buttons">
-
-            <!-- تلفن -->
-            <a class="btn" href="tel:+989962053197">
-
-                <div class="icon">📞</div>
-
-                <div class="text">
-                    <strong>شماره تلفن</strong>
-                    <small>+98 996 205 3197</small>
-                </div>
-
-                <div class="arrow">‹</div>
-
-            </a>
-
-
-            <!-- اینستاگرام -->
-            <a class="btn"
-               href="https://instagram.com/_amirgk"
-               target="_blank">
-
-                <div class="icon">◎</div>
-
-                <div class="text">
-                    <strong>اینستاگرام</strong>
-                    <small>instagram.com/_amirgk</small>
-                </div>
-
-                <div class="arrow">‹</div>
-
-            </a>
-
-
-            <!-- تلگرام -->
-            <a class="btn"
-               href="https://t.me/Am_xo_ir"
-               target="_blank">
-
-                <div class="icon">➤</div>
-
-                <div class="text">
-                    <strong>تلگرام</strong>
-                    <small>t.me/Am_xo_ir</small>
-                </div>
-
-                <div class="arrow">‹</div>
-
-            </a>
-
-
-            <!-- واتساپ -->
-            <a class="btn"
-               href="https://wa.me/989962053197"
-               target="_blank">
-
-                <div class="icon">◉</div>
-
-                <div class="text">
-                    <strong>واتساپ</strong>
-                    <small>پیام در واتساپ</small>
-                </div>
-
-                <div class="arrow">‹</div>
-
-            </a>
-
-
-            <!-- ایمیل -->
-            <a class="btn"
-               href="mailto:amirgk005@gmail.com">
-
-                <div class="icon">✉</div>
-
-                <div class="text">
-                    <strong>ایمیل</strong>
-                    <small>amirgk005@gmail.com</small>
-                </div>
-
-                <div class="arrow">‹</div>
-
-            </a>
+            <img
+                src="profile.jpg"
+                alt="Amirali Asghari">
 
         </div>
 
+    </div>
 
-        <!-- شبکه های اجتماعی پایین -->
 
-        <div class="follow">
 
-            <div class="follow-title">
-                — &nbsp; Follow Me &nbsp; —
-            </div>
+    <!-- NAME -->
 
-            <div class="socials">
+    <h1>
 
-                <a class="social"
-                   href="https://instagram.com/USERNAME"
-                   target="_blank">
-                    ◎
-                </a>
+        Amirali
+        <span>Asghari</span>
 
-                <a class="social"
-                   href="https://t.me/USERNAME"
-                   target="_blank">
-                    ➤
-                </a>
+    </h1>
 
-                <a class="social"
-                   href="#">
-                    X
-                </a>
+
+    <div class="subtitle">
+
+        STAY CONNECTED
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+
+    <!-- =================================================
+         CONTACT BUTTONS
+    ================================================== -->
+
+    <div class="buttons">
+
+
+        <!-- PHONE -->
+
+        <a
+            class="btn"
+            href="tel:+989962053197">
+
+            <div class="icon phone">
+
+                <i class="fa-solid fa-phone"></i>
 
             </div>
 
+            <div class="text">
+
+                <strong>
+                    شماره تلفن
+                </strong>
+
+                <small>
+                    +98 996 205 3197
+                </small>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="btn"
+            href="https://instagram.com/_amirgk"
+            target="_blank"
+            rel="noopener">
+
+            <div class="icon instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </div>
+
+            <div class="text">
+
+                <strong>
+                    اینستاگرام
+                </strong>
+
+                <small>
+                    instagram.com/_amirgk
+                </small>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+
+        <!-- TELEGRAM -->
+
+        <a
+            class="btn"
+            href="https://t.me/Am_xo_ir"
+            target="_blank"
+            rel="noopener">
+
+            <div class="icon telegram">
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </div>
+
+            <div class="text">
+
+                <strong>
+                    تلگرام
+                </strong>
+
+                <small>
+                    t.me/Am_xo_ir
+                </small>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            class="btn"
+            href="https://wa.me/989962053197"
+            target="_blank"
+            rel="noopener">
+
+            <div class="icon whatsapp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </div>
+
+            <div class="text">
+
+                <strong>
+                    واتساپ
+                </strong>
+
+                <small>
+                    پیام در واتساپ
+                </small>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+
+        <!-- EMAIL -->
+
+        <a
+            class="btn"
+            href="mailto:amirgk005@gmail.com">
+
+            <div class="icon email">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div class="text">
+
+                <strong>
+                    ایمیل
+                </strong>
+
+                <small>
+                    amirgk005@gmail.com
+                </small>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         QUICK ACTIONS
+    ================================================== -->
+
+    <div class="quick">
+
+
+        <button
+            class="quick-btn"
+            onclick="copyText('+989962053197','شماره تلفن')">
+
+            <i class="fa-regular fa-copy"></i>
+
+            کپی شماره
+
+        </button>
+
+
+        <button
+            class="quick-btn"
+            onclick="saveContact()">
+
+            <i class="fa-regular fa-address-card"></i>
+
+            ذخیره مخاطب
+
+        </button>
+
+
+        <button
+            class="quick-btn"
+            onclick="sharePage()">
+
+            <i class="fa-solid fa-share-nodes"></i>
+
+            اشتراک‌گذاری
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         NFC
+    ================================================== -->
+
+    <div class="nfc">
+
+        <i class="fa-solid fa-wifi"></i>
+
+        TAP NFC CARD TO CONNECT
+
+    </div>
+
+
+
+    <!-- =================================================
+         FOLLOW
+    ================================================== -->
+
+    <div class="follow">
+
+        <div class="follow-title">
+
+            — &nbsp; Follow Me &nbsp; —
+
         </div>
 
-    </main>
+
+        <div class="socials">
+
+
+            <a
+                class="social"
+                href="https://instagram.com/_amirgk"
+                target="_blank">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <a
+                class="social"
+                href="https://t.me/Am_xo_ir"
+                target="_blank">
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </a>
+
+
+            <a
+                class="social"
+                href="https://x.com/"
+                target="_blank">
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CLOCK -->
+
+    <div
+        class="clock"
+        id="clock">
+
+    </div>
+
+
+
+    <div class="footer">
+
+        AMIRALI ASGHARI © 2026
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="music"
+    loop>
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<button
+    class="music"
+    id="musicButton"
+    aria-label="Music">
+
+    <i class="fa-solid fa-music"></i>
+
+</button>
+
+
+
+<!-- =====================================================
+     SECRET MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="secretModal">
+
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeSecret()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-title">
+
+            <i class="fa-solid fa-user-secret"></i>
+
+            SECRET ACCESS
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <strong>
+                <i class="fa-solid fa-fingerprint"></i>
+                DIGITAL ID
+            </strong>
+
+            <p>
+                AMIRALI ASGHARI
+                <br>
+                ACCESS LEVEL: PREMIUM
+                <br>
+                STATUS: ONLINE
+            </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <strong>
+                <i class="fa-solid fa-qrcode"></i>
+                MY QR CODE
+            </strong>
+
+            <div id="qrcode"></div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <strong>
+                <i class="fa-solid fa-terminal"></i>
+                SYSTEM
+            </strong>
+
+            <p id="systemInfo">
+                Initializing...
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   CREATE STARS
+========================================================= */
+
+const stars =
+document.getElementById("stars");
+
+for(let i=0;i<35;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.animationDuration =
+        (7+Math.random()*12)+"s";
+
+    star.style.animationDelay =
+        (-Math.random()*15)+"s";
+
+    star.style.opacity =
+        Math.random();
+
+    stars.appendChild(star);
+
+}
+
+
+/* =========================================================
+   TOUCH LIGHT
+========================================================= */
+
+const light =
+document.querySelector(".touch-light");
+
+
+function moveLight(x,y){
+
+    light.style.left=x+"px";
+    light.style.top=y+"px";
+
+}
+
+
+document.addEventListener(
+    "mousemove",
+    e=>{
+        moveLight(
+            e.clientX,
+            e.clientY
+        );
+    }
+);
+
+
+document.addEventListener(
+    "touchmove",
+    e=>{
+
+        if(e.touches.length){
+
+            moveLight(
+                e.touches[0].clientX,
+                e.touches[0].clientY
+            );
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   3D DESKTOP EFFECT
+========================================================= */
+
+const card =
+document.getElementById("card");
+
+
+document.addEventListener(
+    "mousemove",
+    e=>{
+
+        if(window.innerWidth < 700)
+            return;
+
+        const x =
+            (window.innerWidth/2-e.clientX)/100;
+
+        const y =
+            (window.innerHeight/2-e.clientY)/100;
+
+        card.style.transform =
+            `rotateY(${x}deg) rotateX(${y}deg)`;
+
+    }
+);
+
+
+document.addEventListener(
+    "mouseleave",
+    ()=>{
+
+        card.style.transform=
+            "rotateY(0deg) rotateX(0deg)";
+
+    }
+);
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+========================================================= */
+
+document
+.querySelectorAll(".btn")
+.forEach(btn=>{
+
+    btn.addEventListener(
+        "mousemove",
+        e=>{
+
+            if(window.innerWidth<700)
+                return;
+
+            const rect =
+                btn.getBoundingClientRect();
+
+            const x =
+                e.clientX -
+                rect.left -
+                rect.width/2;
+
+            const y =
+                e.clientY -
+                rect.top -
+                rect.height/2;
+
+            btn.style.transform =
+                `translate(${x*.025}px,${y*.025}px)`;
+
+        }
+    );
+
+    btn.addEventListener(
+        "mouseleave",
+        ()=>{
+            btn.style.transform="";
+        }
+    );
+
+});
+
+
+/* =========================================================
+   RIPPLE
+========================================================= */
+
+document
+.querySelectorAll(".btn,.quick-btn,.social")
+.forEach(element=>{
+
+    element.addEventListener(
+        "click",
+        function(e){
+
+            const rect =
+                this.getBoundingClientRect();
+
+            const ripple =
+                document.createElement("span");
+
+            const size =
+                Math.max(
+                    rect.width,
+                    rect.height
+                );
+
+            ripple.style.position="absolute";
+            ripple.style.width=size+"px";
+            ripple.style.height=size+"px";
+            ripple.style.borderRadius="50%";
+            ripple.style.background="rgba(255,255,255,.18)";
+            ripple.style.left=
+                (e.clientX-rect.left-size/2)+"px";
+            ripple.style.top=
+                (e.clientY-rect.top-size/2)+"px";
+            ripple.style.pointerEvents="none";
+            ripple.style.transform="scale(0)";
+            ripple.style.transition=
+                "transform .6s,opacity .6s";
+
+            this.appendChild(ripple);
+
+            requestAnimationFrame(()=>{
+                ripple.style.transform="scale(2)";
+                ripple.style.opacity="0";
+            });
+
+            setTimeout(()=>{
+                ripple.remove();
+            },700);
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+function copyText(text,label){
+
+    navigator.clipboard
+    .writeText(text)
+    .then(()=>{
+
+        showToast(
+            label+" کپی شد ✓"
+        );
+
+    })
+    .catch(()=>{
+
+        showToast(
+            text
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   SAVE CONTACT
+========================================================= */
+
+function saveContact(){
+
+    const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Amirali Asghari
+TEL;TYPE=CELL:+989962053197
+EMAIL:amirgk005@gmail.com
+URL:https://instagram.com/_amirgk
+NOTE:Telegram: https://t.me/Am_xo_ir
+END:VCARD`;
+
+    const blob =
+        new Blob(
+            [vcard],
+            {type:"text/vcard"}
+        );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const a =
+        document.createElement("a");
+
+    a.href=url;
+
+    a.download=
+        "Amirali-Asghari.vcf";
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+    showToast(
+        "فایل مخاطب آماده شد ✓"
+    );
+
+}
+
+
+/* =========================================================
+   SHARE
+========================================================= */
+
+async function sharePage(){
+
+    const data={
+
+        title:
+            "Amirali Asghari",
+
+        text:
+            "Digital Contact Card",
+
+        url:
+            location.href
+
+    };
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share(data);
+
+        }catch(e){}
+
+    }else{
+
+        copyText(
+            location.href,
+            "لینک صفحه"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const toast =
+        document.createElement("div");
+
+    toast.innerText=message;
+
+    toast.style.position="fixed";
+    toast.style.bottom="80px";
+    toast.style.left="50%";
+    toast.style.transform=
+        "translateX(-50%)";
+    toast.style.zIndex="200";
+    toast.style.padding=
+        "12px 20px";
+    toast.style.borderRadius="14px";
+    toast.style.background=
+        "rgba(2,20,35,.95)";
+    toast.style.border=
+        "1px solid #00bfff";
+    toast.style.color="#fff";
+    toast.style.fontSize="13px";
+    toast.style.boxShadow=
+        "0 0 25px rgba(0,170,255,.4)";
+    toast.style.backdropFilter=
+        "blur(15px)";
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+        toast.style.opacity="0";
+        toast.style.transition=".3s";
+    },1800);
+
+    setTimeout(()=>{
+        toast.remove();
+    },2200);
+
+}
+
+
+/* =========================================================
+   CLOCK
+========================================================= */
+
+function updateClock(){
+
+    const now =
+        new Date();
+
+    const time =
+        now.toLocaleTimeString(
+            "fa-IR",
+            {
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit"
+            }
+        );
+
+    document
+    .getElementById("clock")
+    .innerText=
+        "LOCAL TIME • "+time;
+
+}
+
+setInterval(
+    updateClock,
+    1000
+);
+
+updateClock();
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+document.getElementById("music");
+
+const musicButton =
+document.getElementById("musicButton");
+
+
+let playing=false;
+
+
+musicButton.addEventListener(
+    "click",
+    async ()=>{
+
+        if(!playing){
+
+            try{
+
+                await music.play();
+
+                playing=true;
+
+                musicButton.classList
+                    .add("playing");
+
+                musicButton.innerHTML=
+                    '<i class="fa-solid fa-pause"></i>';
+
+            }catch(e){
+
+                showToast(
+                    "فایل music.mp3 را کنار index.html قرار بده"
+                );
+
+            }
+
+        }else{
+
+            music.pause();
+
+            playing=false;
+
+            musicButton.classList
+                .remove("playing");
+
+            musicButton.innerHTML=
+                '<i class="fa-solid fa-music"></i>';
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SECRET MODE
+   3 TAPS ON PROFILE
+========================================================= */
+
+const profile =
+document.getElementById("profile");
+
+const secretModal =
+document.getElementById("secretModal");
+
+
+let taps=0;
+
+let tapTimer;
+
+
+profile.addEventListener(
+    "click",
+    ()=>{
+
+        taps++;
+
+        clearTimeout(tapTimer);
+
+        tapTimer =
+            setTimeout(
+                ()=>{
+                    taps=0;
+                },
+                1000
+            );
+
+        if(taps===3){
+
+            taps=0;
+
+            openSecret();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SECRET OPEN
+========================================================= */
+
+function openSecret(){
+
+    document.body
+        .classList
+        .add("secret");
+
+    secretModal
+        .classList
+        .add("show");
+
+    generateQR();
+
+    document
+        .getElementById("systemInfo")
+        .innerHTML=
+        `
+        DEVICE: ${navigator.userAgent.substring(0,45)}
+        <br>
+        SCREEN: ${window.innerWidth} × ${window.innerHeight}
+        <br>
+        LANGUAGE: ${navigator.language}
+        <br>
+        CONNECTION: ONLINE
+        `;
+
+}
+
+
+/* =========================================================
+   SECRET CLOSE
+========================================================= */
+
+function closeSecret(){
+
+    secretModal
+        .classList
+        .remove("show");
+
+    document.body
+        .classList
+        .remove("secret");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL OUTSIDE
+========================================================= */
+
+secretModal.addEventListener(
+    "click",
+    e=>{
+
+        if(e.target===secretModal){
+
+            closeSecret();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   QR CODE
+========================================================= */
+
+function generateQR(){
+
+    const box =
+        document.getElementById("qrcode");
+
+    box.innerHTML="";
+
+    const img =
+        document.createElement("img");
+
+    const url =
+        encodeURIComponent(
+            location.href
+        );
+
+    img.src=
+        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="
+        +url;
+
+    img.alt=
+        "QR Code";
+
+    box.appendChild(img);
+
+}
+
+
+/* =========================================================
+   ESC CLOSE
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Escape"){
+
+            closeSecret();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   VIBRATION
+========================================================= */
+
+document
+.querySelectorAll(
+    ".btn,.quick-btn,.social,.music"
+)
+.forEach(el=>{
+
+    el.addEventListener(
+        "click",
+        ()=>{
+
+            if(
+                navigator.vibrate
+            ){
+
+                navigator.vibrate(12);
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   PAGE VISIBILITY
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
+
+        if(
+            document.hidden &&
+            playing
+        ){
+
+            music.pause();
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
