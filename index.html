@@ -2,7 +2,6 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -10,16 +9,12 @@ content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no
 
 <meta name="theme-color" content="#020711">
 
-<title>Amirali Asghari | Digital Card</title>
+<title>Amirali Asghari</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -33,179 +28,84 @@ html{
 }
 
 body{
-
     min-height:100vh;
-
     background:#01040a;
-
-    color:#fff;
-
-    font-family:
-        Arial,
-        sans-serif;
-
+    color:white;
+    font-family:Arial,sans-serif;
     overflow-x:hidden;
-
 }
 
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
+/* BACKGROUND */
 
 #universe{
-
     position:fixed;
-
     inset:0;
-
     overflow:hidden;
-
     z-index:0;
 
     background:
-
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(0,150,255,.22),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 0% 80%,
-            rgba(0,70,255,.18),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 100% 70%,
-            rgba(0,220,255,.12),
-            transparent 28%
-        ),
-
+        radial-gradient(circle at 50% 10%,rgba(0,150,255,.23),transparent 30%),
+        radial-gradient(circle at 0% 80%,rgba(0,70,255,.18),transparent 30%),
+        radial-gradient(circle at 100% 70%,rgba(0,220,255,.12),transparent 30%),
         #01040a;
-
 }
 
-
-/* =========================================================
-   GLOW ORBS
-========================================================= */
-
 .orb{
-
     position:absolute;
-
     border-radius:50%;
-
     filter:blur(80px);
-
     pointer-events:none;
-
-    mix-blend-mode:screen;
-
 }
 
 .orb1{
-
     width:320px;
     height:320px;
-
     background:#006cff;
-
     top:-120px;
     left:-100px;
-
-    animation:
-        orb1 12s infinite alternate ease-in-out;
-
+    animation:orb1 12s infinite alternate ease-in-out;
 }
 
 .orb2{
-
     width:280px;
     height:280px;
-
     background:#00c8ff;
-
     right:-120px;
     top:35%;
-
-    animation:
-        orb2 15s infinite alternate ease-in-out;
-
+    animation:orb2 15s infinite alternate ease-in-out;
 }
 
 .orb3{
-
     width:350px;
     height:350px;
-
     background:#002eff;
-
     bottom:-220px;
     left:20%;
-
-    animation:
-        orb3 18s infinite alternate ease-in-out;
-
+    animation:orb3 18s infinite alternate ease-in-out;
 }
 
 @keyframes orb1{
-
-    to{
-        transform:
-            translate(180px,230px)
-            scale(1.35);
-    }
-
+    to{transform:translate(180px,230px) scale(1.35);}
 }
 
 @keyframes orb2{
-
-    to{
-        transform:
-            translate(-170px,120px)
-            scale(1.4);
-    }
-
+    to{transform:translate(-170px,120px) scale(1.4);}
 }
 
 @keyframes orb3{
-
-    to{
-        transform:
-            translate(100px,-150px)
-            scale(1.4);
-    }
-
+    to{transform:translate(100px,-150px) scale(1.4);}
 }
 
-
-/* =========================================================
-   GRID
-========================================================= */
+/* GRID */
 
 .grid{
-
     position:absolute;
-
     inset:-20%;
-
     opacity:.12;
 
     background-image:
-
-        linear-gradient(
-            rgba(0,170,255,.4) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0,170,255,.4) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(0,170,255,.4) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,170,255,.4) 1px,transparent 1px);
 
     background-size:45px 45px;
 
@@ -216,125 +116,56 @@ body{
 
     transform-origin:center bottom;
 
-    animation:
-        gridMove 10s linear infinite;
-
+    animation:gridMove 10s linear infinite;
 }
 
 @keyframes gridMove{
-
-    to{
-        background-position:
-            0 45px,
-            45px 0;
-    }
-
+    to{background-position:0 45px,45px 0;}
 }
 
-
-/* =========================================================
-   SCANLINES
-========================================================= */
-
-.scanlines{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:3;
-
-    pointer-events:none;
-
-    opacity:.08;
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(0,180,255,.25) 4px
-        );
-
-}
-
-
-/* =========================================================
-   STARS
-========================================================= */
+/* STARS */
 
 #stars{
-
     position:absolute;
-
     inset:0;
-
 }
 
 .star{
-
     position:absolute;
-
     width:2px;
     height:2px;
-
     border-radius:50%;
-
-    background:#fff;
+    background:white;
 
     box-shadow:
         0 0 7px #00bfff,
         0 0 16px #008cff;
 
-    animation:
-        starFall linear infinite;
-
+    animation:starFall linear infinite;
 }
 
 @keyframes starFall{
-
     from{
-
-        transform:
-            translateY(110vh)
-            scale(.2);
-
+        transform:translateY(110vh) scale(.2);
         opacity:0;
-
     }
 
-    10%{
-        opacity:1;
-    }
+    10%{opacity:1;}
 
     50%{
-        transform:
-            translateY(50vh)
-            scale(1.5);
+        transform:translateY(50vh) scale(1.5);
     }
 
     to{
-
-        transform:
-            translateY(-10vh)
-            scale(.2);
-
+        transform:translateY(-10vh) scale(.2);
         opacity:0;
-
     }
-
 }
 
-
-/* =========================================================
-   METEORS
-========================================================= */
+/* METEORS */
 
 .meteor{
-
     position:absolute;
-
     width:120px;
     height:2px;
 
@@ -351,12 +182,9 @@ body{
         0 0 25px #008cff;
 
     transform:rotate(-35deg);
-
     opacity:0;
 
-    animation:
-        meteor 8s linear infinite;
-
+    animation:meteor 8s linear infinite;
 }
 
 .meteor1{
@@ -381,44 +209,46 @@ body{
 
     0%,75%{
         opacity:0;
-        transform:
-            translate(0,0)
-            rotate(-35deg);
+        transform:translate(0,0) rotate(-35deg);
     }
 
-    78%{
-        opacity:1;
-    }
+    78%{opacity:1;}
 
     100%{
         opacity:0;
-        transform:
-            translate(-500px,500px)
-            rotate(-35deg);
+        transform:translate(-500px,500px) rotate(-35deg);
     }
-
 }
 
+/* SCANLINES */
 
-/* =========================================================
-   TOUCH LIGHT
-========================================================= */
+.scanlines{
+    position:fixed;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    opacity:.07;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(0,180,255,.25) 4px
+        );
+}
+
+/* TOUCH LIGHT */
 
 .touch-light{
-
     position:fixed;
-
     width:280px;
     height:280px;
-
     border-radius:50%;
-
     pointer-events:none;
-
     z-index:4;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     background:
         radial-gradient(
@@ -432,75 +262,49 @@ body{
     transition:
         left .12s ease,
         top .12s ease;
-
 }
 
-
-/* =========================================================
-   MAIN
-========================================================= */
+/* MAIN */
 
 .container{
-
     width:100%;
-
     max-width:480px;
-
     margin:auto;
 
-    padding:
-        48px 15px 45px;
+    padding:42px 14px 45px;
 
     position:relative;
-
     z-index:10;
 
     text-align:center;
 
-    transition:
-        transform .2s ease;
-
+    transition:transform .2s ease;
 }
 
-
-/* =========================================================
-   TOP HUD
-========================================================= */
+/* HUD */
 
 .top-hud{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     margin-bottom:25px;
 
-    font-size:10px;
-
+    font-size:9px;
     color:#5e91ad;
-
     letter-spacing:2px;
-
 }
 
 .hud-left,
 .hud-right{
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
 }
 
 .online-dot{
-
     width:7px;
     height:7px;
-
     border-radius:50%;
 
     background:#00ff9d;
@@ -509,103 +313,71 @@ body{
         0 0 8px #00ff9d,
         0 0 18px #00ff9d;
 
-    animation:
-        pulse 1.5s infinite;
-
+    animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-
     50%{
         opacity:.35;
         transform:scale(.7);
     }
-
 }
 
-
-/* =========================================================
-   PROFILE
-========================================================= */
+/* PROFILE */
 
 .profile-zone{
-
     width:180px;
     height:180px;
 
-    margin:
-        0 auto 25px;
+    margin:0 auto 25px;
 
     position:relative;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     cursor:pointer;
-
 }
 
-
 .profile-zone::before{
-
     content:"";
 
     position:absolute;
-
     inset:-12px;
 
     border-radius:50%;
 
-    border:
-        1px solid rgba(0,200,255,.65);
+    border:1px solid rgba(0,200,255,.65);
 
     box-shadow:
         0 0 20px rgba(0,170,255,.5);
 
-    animation:
-        spin 8s linear infinite;
-
+    animation:spin 8s linear infinite;
 }
 
 .profile-zone::after{
-
     content:"";
 
     position:absolute;
-
     inset:-25px;
 
     border-radius:50%;
 
-    border:
-        1px dashed rgba(0,150,255,.28);
+    border:1px dashed rgba(0,150,255,.28);
 
-    animation:
-        spinReverse 15s linear infinite;
-
+    animation:spinReverse 15s linear infinite;
 }
 
 @keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
-
+    to{transform:rotate(360deg);}
 }
 
 @keyframes spinReverse{
-
-    to{
-        transform:rotate(-360deg);
-    }
-
+    to{transform:rotate(-360deg);}
 }
 
 .profile{
-
     width:155px;
     height:155px;
 
@@ -624,39 +396,25 @@ body{
 
     background-size:400% 400%;
 
-    animation:
-        gradient 4s ease infinite;
+    animation:gradient 4s ease infinite;
 
     box-shadow:
-
         0 0 20px #008cff,
         0 0 60px rgba(0,140,255,.6),
         0 0 110px rgba(0,140,255,.25);
 
     position:relative;
-
     z-index:2;
-
 }
 
 @keyframes gradient{
 
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
 .profile img{
-
     width:100%;
     height:100%;
 
@@ -664,59 +422,41 @@ body{
 
     border-radius:50%;
 
-    border:
-        4px solid #01040a;
-
+    border:4px solid #01040a;
 }
 
-
-/* =========================================================
-   NAME
-========================================================= */
+/* NAME */
 
 h1{
-
     font-size:34px;
-
     margin-bottom:8px;
-
     letter-spacing:1px;
 
     text-shadow:
         0 0 20px rgba(255,255,255,.15);
-
 }
 
 h1 span{
-
     color:#00c8ff;
 
     text-shadow:
         0 0 10px #00c8ff,
         0 0 30px #008cff,
         0 0 60px rgba(0,140,255,.6);
-
 }
 
 .subtitle{
-
     color:#7f9aac;
-
     letter-spacing:5px;
-
     font-size:12px;
-
     margin-bottom:18px;
-
 }
 
 .line{
-
     width:100px;
     height:2px;
 
-    margin:
-        0 auto 28px;
+    margin:0 auto 28px;
 
     background:
         linear-gradient(
@@ -726,60 +466,41 @@ h1 span{
             transparent
         );
 
-    box-shadow:
-        0 0 15px #008cff;
+    box-shadow:0 0 15px #008cff;
 
-    animation:
-        linePulse 2s infinite alternate;
-
+    animation:linePulse 2s infinite alternate;
 }
 
 @keyframes linePulse{
-
     to{
         width:170px;
-        box-shadow:
-            0 0 30px #00bfff;
+        box-shadow:0 0 30px #00bfff;
     }
-
 }
 
-
-/* =========================================================
-   BUTTONS
-========================================================= */
+/* BUTTONS */
 
 .buttons{
-
     display:flex;
-
     flex-direction:column;
-
     gap:14px;
-
 }
 
 .btn{
-
     width:100%;
-
     min-height:76px;
 
     display:flex;
-
     align-items:center;
 
     position:relative;
-
     overflow:hidden;
 
-    padding:
-        11px 17px;
+    padding:11px 17px;
 
     border-radius:21px;
 
-    color:#fff;
-
+    color:white;
     text-decoration:none;
 
     background:
@@ -792,16 +513,10 @@ h1 span{
     border:
         1px solid rgba(0,180,255,.5);
 
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
+    backdrop-filter:blur(18px);
 
     box-shadow:
-
         0 0 15px rgba(0,140,255,.13),
-
         inset 0 0 25px rgba(0,140,255,.05);
 
     transition:
@@ -809,9 +524,7 @@ h1 span{
         box-shadow .25s ease,
         border .25s ease;
 
-    animation:
-        buttonIn .7s ease both;
-
+    animation:buttonIn .7s ease both;
 }
 
 .btn:nth-child(1){animation-delay:.1s}
@@ -821,28 +534,18 @@ h1 span{
 .btn:nth-child(5){animation-delay:.5s}
 
 @keyframes buttonIn{
-
     from{
         opacity:0;
-        transform:
-            translateY(30px)
-            scale(.94);
+        transform:translateY(30px) scale(.94);
     }
 
     to{
         opacity:1;
-        transform:
-            translateY(0)
-            scale(1);
+        transform:translateY(0) scale(1);
     }
-
 }
 
-
-/* shine */
-
 .btn::before{
-
     content:"";
 
     position:absolute;
@@ -851,7 +554,6 @@ h1 span{
     height:250%;
 
     left:-150px;
-
     top:-70%;
 
     background:
@@ -865,7 +567,6 @@ h1 span{
     transform:rotate(20deg);
 
     transition:.8s;
-
 }
 
 .btn:hover::before{
@@ -873,7 +574,6 @@ h1 span{
 }
 
 .btn:hover{
-
     transform:
         translateY(-5px)
         scale(1.015);
@@ -881,21 +581,14 @@ h1 span{
     border-color:#00d9ff;
 
     box-shadow:
-
         0 0 25px rgba(0,190,255,.5),
         0 0 60px rgba(0,140,255,.2),
-
         inset 0 0 30px rgba(0,180,255,.1);
-
 }
 
-
-/* =========================================================
-   ICONS
-========================================================= */
+/* ICONS */
 
 .icon{
-
     width:50px;
     height:50px;
 
@@ -904,7 +597,6 @@ h1 span{
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -913,131 +605,84 @@ h1 span{
     font-size:21px;
 
     transition:.3s;
-
 }
 
 .btn:hover .icon{
-
     transform:
         scale(1.14)
         rotate(-7deg);
-
 }
 
 .phone{
-    background:
-        linear-gradient(135deg,#00d9ff,#006eff);
+    background:linear-gradient(135deg,#00d9ff,#006eff);
     box-shadow:0 0 18px rgba(0,180,255,.5);
 }
 
 .instagram{
-    background:
-        linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
     box-shadow:0 0 18px rgba(253,29,29,.3);
 }
 
 .telegram{
-    background:
-        linear-gradient(135deg,#2AABEE,#229ED9);
+    background:linear-gradient(135deg,#2AABEE,#229ED9);
     box-shadow:0 0 18px rgba(42,171,238,.5);
 }
 
 .whatsapp{
-    background:
-        linear-gradient(135deg,#25D366,#128C7E);
+    background:linear-gradient(135deg,#25D366,#128C7E);
     box-shadow:0 0 18px rgba(37,211,102,.4);
 }
 
 .email{
-    background:
-        linear-gradient(135deg,#00d9ff,#006eff);
+    background:linear-gradient(135deg,#00d9ff,#006eff);
     box-shadow:0 0 18px rgba(0,180,255,.5);
 }
 
-
-/* =========================================================
-   TEXT
-========================================================= */
+/* TEXT */
 
 .text{
-
     flex:1;
-
     text-align:right;
-
 }
 
 .text strong{
-
     display:block;
-
     font-size:17px;
-
     margin-bottom:5px;
-
 }
 
 .text small{
-
     display:block;
-
     direction:ltr;
-
     color:#91aabd;
-
     font-size:11px;
-
 }
 
-
-/* =========================================================
-   ARROW
-========================================================= */
-
 .arrow{
-
     color:#72ddff;
-
     font-size:30px;
-
     margin-right:7px;
-
     transition:.3s;
-
 }
 
 .btn:hover .arrow{
-
-    transform:
-        translateX(-6px);
-
-    color:#fff;
+    transform:translateX(-6px);
+    color:white;
 
     text-shadow:
         0 0 15px #00c8ff;
-
 }
 
-
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
+/* QUICK */
 
 .quick{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:10px;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
     margin-top:15px;
-
 }
 
 .quick-btn{
-
     border:
         1px solid rgba(0,170,255,.35);
 
@@ -1048,29 +693,25 @@ h1 span{
 
     border-radius:15px;
 
-    min-height:48px;
+    min-height:52px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    gap:7px;
+    gap:6px;
 
-    font-size:11px;
+    font-size:10px;
 
     cursor:pointer;
 
     backdrop-filter:blur(12px);
 
     transition:.25s;
-
 }
 
 .quick-btn:hover,
 .quick-btn:active{
-
     background:
         rgba(0,130,220,.35);
 
@@ -1079,18 +720,66 @@ h1 span{
     box-shadow:
         0 0 20px rgba(0,160,255,.3);
 
-    transform:
-        translateY(-3px);
-
+    transform:translateY(-3px);
 }
 
+/* EXTRA */
 
-/* =========================================================
-   NFC BOX
-========================================================= */
+.extra-actions{
+    margin-top:10px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:9px;
+}
+
+.extra-btn{
+    min-height:52px;
+
+    border:
+        1px solid rgba(0,170,255,.28);
+
+    background:
+        rgba(2,15,28,.58);
+
+    border-radius:15px;
+
+    color:#82b9d3;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    font-size:11px;
+
+    transition:.25s;
+}
+
+.extra-btn i{
+    color:#00c8ff;
+}
+
+.extra-btn:hover{
+    color:white;
+
+    border-color:#00c8ff;
+
+    box-shadow:
+        0 0 18px rgba(0,180,255,.3);
+
+    transform:translateY(-2px);
+}
+
+/* NFC */
 
 .nfc{
-
     margin-top:20px;
 
     padding:14px;
@@ -1106,83 +795,60 @@ h1 span{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     gap:10px;
 
     color:#6898af;
 
-    font-size:11px;
-
+    font-size:10px;
 }
 
 .nfc i{
-
     color:#00c8ff;
 
-    animation:
-        nfcPulse 1.5s infinite;
-
+    animation:nfcPulse 1.5s infinite;
 }
 
 @keyframes nfcPulse{
-
     50%{
         transform:scale(1.3);
+
         filter:
             drop-shadow(0 0 10px #00c8ff);
     }
-
 }
 
-
-/* =========================================================
-   FOLLOW
-========================================================= */
+/* FOLLOW */
 
 .follow{
-
     margin-top:35px;
-
 }
 
 .follow-title{
-
     color:#a8c0cf;
-
     letter-spacing:2px;
-
     margin-bottom:17px;
-
     font-size:14px;
-
 }
 
 .socials{
-
     display:flex;
-
     justify-content:center;
-
     gap:16px;
-
 }
 
 .social{
-
     width:52px;
     height:52px;
 
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    color:#fff;
-
+    color:white;
     text-decoration:none;
 
     border:
@@ -1197,11 +863,9 @@ h1 span{
         0 0 15px rgba(0,140,255,.25);
 
     transition:.3s;
-
 }
 
 .social:hover{
-
     transform:
         translateY(-6px)
         scale(1.12);
@@ -1210,111 +874,21 @@ h1 span{
 
     box-shadow:
         0 0 25px #008cff;
-
 }
 
-
-/* =========================================================
-   CLOCK
-========================================================= */
-
-.clock{
-
-    margin-top:20px;
-
-    color:#4e7387;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .footer{
-
     margin-top:25px;
-
     color:#385266;
-
     font-size:9px;
-
     letter-spacing:2px;
-
 }
 
-
-/* =========================================================
-   MUSIC PLAYER
-========================================================= */
-
-.music{
-
-    position:fixed;
-
-    left:15px;
-
-    bottom:15px;
-
-    z-index:50;
-
-    width:48px;
-    height:48px;
-
-    border-radius:50%;
-
-    border:
-        1px solid #00aaff;
-
-    background:
-        rgba(2,15,28,.85);
-
-    color:#00c8ff;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-        0 0 20px rgba(0,150,255,.35);
-
-}
-
-.music.playing{
-
-    animation:
-        musicPulse 1s infinite alternate;
-
-}
-
-@keyframes musicPulse{
-
-    to{
-        box-shadow:
-            0 0 30px #00bfff,
-            0 0 60px rgba(0,140,255,.3);
-    }
-
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
+/* MODAL */
 
 .modal{
-
     position:fixed;
-
     inset:0;
 
     z-index:100;
@@ -1329,24 +903,18 @@ h1 span{
     background:
         rgba(0,3,8,.82);
 
-    backdrop-filter:
-        blur(15px);
-
+    backdrop-filter:blur(15px);
 }
 
 .modal.show{
     display:flex;
 }
 
-
 .modal-box{
-
     width:100%;
-
     max-width:390px;
 
     max-height:90vh;
-
     overflow:auto;
 
     border:
@@ -1357,7 +925,6 @@ h1 span{
     padding:25px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(0,50,90,.8),
@@ -1365,19 +932,15 @@ h1 span{
         );
 
     box-shadow:
-
         0 0 30px rgba(0,170,255,.35),
         0 0 100px rgba(0,100,255,.15);
 
-    animation:
-        modalIn .35s ease;
+    animation:modalIn .35s ease;
 
     position:relative;
-
 }
 
 @keyframes modalIn{
-
     from{
         opacity:0;
         transform:
@@ -1391,15 +954,12 @@ h1 span{
             scale(1)
             translateY(0);
     }
-
 }
 
 .close{
-
     position:absolute;
 
     top:12px;
-
     left:15px;
 
     width:35px;
@@ -1414,11 +974,9 @@ h1 span{
     color:white;
 
     cursor:pointer;
-
 }
 
 .modal-title{
-
     color:#00c8ff;
 
     font-size:22px;
@@ -1427,11 +985,9 @@ h1 span{
 
     text-shadow:
         0 0 15px #008cff;
-
 }
 
 .modal-section{
-
     margin-bottom:18px;
 
     padding:15px;
@@ -1443,36 +999,27 @@ h1 span{
 
     border:
         1px solid rgba(0,160,255,.18);
-
 }
 
 .modal-section strong{
-
     display:block;
 
     color:#7edfff;
 
     margin-bottom:8px;
-
 }
 
 .modal-section p{
-
     color:#9eb6c5;
 
     font-size:13px;
 
     line-height:1.8;
-
 }
 
-
-/* =========================================================
-   QR
-========================================================= */
+/* QR */
 
 #qrcode{
-
     width:220px;
     height:220px;
 
@@ -1488,22 +1035,15 @@ h1 span{
 
     align-items:center;
     justify-content:center;
-
 }
 
 #qrcode img{
-
     max-width:100%;
-
 }
 
-
-/* =========================================================
-   SECRET MODE
-========================================================= */
+/* SECRET */
 
 .secret-mode{
-
     position:fixed;
 
     inset:0;
@@ -1524,125 +1064,103 @@ h1 span{
         );
 
     transition:.4s;
-
 }
 
 body.secret .secret-mode{
+    opacity:1;
+}
 
+/* TOAST */
+
+.toast{
+    position:fixed;
+
+    bottom:80px;
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    z-index:200;
+
+    padding:12px 20px;
+
+    border-radius:14px;
+
+    background:
+        rgba(2,20,35,.95);
+
+    border:
+        1px solid #00bfff;
+
+    color:white;
+
+    font-size:12px;
+
+    box-shadow:
+        0 0 25px rgba(0,170,255,.4);
+
+    backdrop-filter:blur(15px);
+
+    opacity:0;
+
+    transition:.3s;
+}
+
+.toast.show{
     opacity:1;
 
+    transform:
+        translateX(-50%)
+        translateY(0);
 }
 
-body.secret{
-
-    --secret:#00ffcc;
-
-}
-
-body.secret .container{
-
-    filter:
-        hue-rotate(45deg);
-
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:500px){
 
-    .container{
-
-        padding:
-            42px 13px 35px;
-
-    }
-
     .profile-zone{
-
         width:145px;
         height:145px;
-
     }
 
     .profile{
-
         width:130px;
         height:130px;
-
     }
 
     h1{
-
         font-size:29px;
-
     }
 
     .btn{
-
         min-height:72px;
-
         border-radius:19px;
-
     }
 
     .icon{
-
         width:45px;
         height:45px;
-
         margin-left:11px;
-
     }
 
     .text strong{
-
         font-size:16px;
-
     }
 
     .text small{
-
         font-size:10px;
-
     }
-
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:.01ms !important;
-
-        animation-iteration-count:1 !important;
-
-        transition-duration:.01ms !important;
-
-    }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<!-- BACKGROUND -->
 
 <div id="universe">
 
@@ -1667,15 +1185,9 @@ body.secret .container{
 <div class="secret-mode"></div>
 
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<!-- MAIN -->
 
 <main class="container" id="card">
-
-
-    <!-- TOP HUD -->
 
     <div class="top-hud">
 
@@ -1687,7 +1199,6 @@ body.secret .container{
 
         </div>
 
-
         <div class="hud-right">
 
             DIGITAL IDENTITY
@@ -1695,7 +1206,6 @@ body.secret .container{
         </div>
 
     </div>
-
 
 
     <!-- PROFILE -->
@@ -1713,7 +1223,6 @@ body.secret .container{
         </div>
 
     </div>
-
 
 
     <!-- NAME -->
@@ -1736,10 +1245,7 @@ body.secret .container{
     <div class="line"></div>
 
 
-
-    <!-- =================================================
-         CONTACT BUTTONS
-    ================================================== -->
+    <!-- CONTACT BUTTONS -->
 
     <div class="buttons">
 
@@ -1758,9 +1264,7 @@ body.secret .container{
 
             <div class="text">
 
-                <strong>
-                    شماره تلفن
-                </strong>
+                <strong>شماره تلفن</strong>
 
                 <small>
                     +98 996 205 3197
@@ -1768,12 +1272,9 @@ body.secret .container{
 
             </div>
 
-            <div class="arrow">
-                ‹
-            </div>
+            <div class="arrow">‹</div>
 
         </a>
-
 
 
         <!-- INSTAGRAM -->
@@ -1792,9 +1293,7 @@ body.secret .container{
 
             <div class="text">
 
-                <strong>
-                    اینستاگرام
-                </strong>
+                <strong>اینستاگرام</strong>
 
                 <small>
                     instagram.com/_amirgk
@@ -1802,12 +1301,9 @@ body.secret .container{
 
             </div>
 
-            <div class="arrow">
-                ‹
-            </div>
+            <div class="arrow">‹</div>
 
         </a>
-
 
 
         <!-- TELEGRAM -->
@@ -1826,9 +1322,7 @@ body.secret .container{
 
             <div class="text">
 
-                <strong>
-                    تلگرام
-                </strong>
+                <strong>تلگرام</strong>
 
                 <small>
                     t.me/Am_xo_ir
@@ -1836,12 +1330,9 @@ body.secret .container{
 
             </div>
 
-            <div class="arrow">
-                ‹
-            </div>
+            <div class="arrow">‹</div>
 
         </a>
-
 
 
         <!-- WHATSAPP -->
@@ -1860,9 +1351,7 @@ body.secret .container{
 
             <div class="text">
 
-                <strong>
-                    واتساپ
-                </strong>
+                <strong>واتساپ</strong>
 
                 <small>
                     پیام در واتساپ
@@ -1870,12 +1359,9 @@ body.secret .container{
 
             </div>
 
-            <div class="arrow">
-                ‹
-            </div>
+            <div class="arrow">‹</div>
 
         </a>
-
 
 
         <!-- EMAIL -->
@@ -1892,9 +1378,7 @@ body.secret .container{
 
             <div class="text">
 
-                <strong>
-                    ایمیل
-                </strong>
+                <strong>ایمیل</strong>
 
                 <small>
                     amirgk005@gmail.com
@@ -1902,23 +1386,16 @@ body.secret .container{
 
             </div>
 
-            <div class="arrow">
-                ‹
-            </div>
+            <div class="arrow">‹</div>
 
         </a>
-
 
     </div>
 
 
-
-    <!-- =================================================
-         QUICK ACTIONS
-    ================================================== -->
+    <!-- QUICK ACTIONS -->
 
     <div class="quick">
-
 
         <button
             class="quick-btn"
@@ -1948,18 +1425,42 @@ body.secret .container{
 
             <i class="fa-solid fa-share-nodes"></i>
 
-            اشتراک‌گذاری
+            اشتراک
 
         </button>
-
 
     </div>
 
 
+    <!-- EXTRA ACTIONS -->
 
-    <!-- =================================================
-         NFC
-    ================================================== -->
+    <div class="extra-actions">
+
+        <button
+            class="extra-btn"
+            onclick="openQR()">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            QR Code
+
+        </button>
+
+
+        <button
+            class="extra-btn"
+            onclick="showInstallInfo()">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            نصب روی گوشی
+
+        </button>
+
+    </div>
+
+
+    <!-- NFC -->
 
     <div class="nfc">
 
@@ -1970,10 +1471,7 @@ body.secret .container{
     </div>
 
 
-
-    <!-- =================================================
-         FOLLOW
-    ================================================== -->
+    <!-- FOLLOW -->
 
     <div class="follow">
 
@@ -1985,7 +1483,6 @@ body.secret .container{
 
 
         <div class="socials">
-
 
             <a
                 class="social"
@@ -2016,21 +1513,9 @@ body.secret .container{
 
             </a>
 
-
         </div>
 
     </div>
-
-
-
-    <!-- CLOCK -->
-
-    <div
-        class="clock"
-        id="clock">
-
-    </div>
-
 
 
     <div class="footer">
@@ -2039,52 +1524,20 @@ body.secret .container{
 
     </div>
 
-
 </main>
 
 
-
-<!-- =====================================================
-     MUSIC
-===================================================== -->
-
-<audio
-    id="music"
-    loop>
-
-    <source
-        src="music.mp3"
-        type="audio/mpeg">
-
-</audio>
-
-
-<button
-    class="music"
-    id="musicButton"
-    aria-label="Music">
-
-    <i class="fa-solid fa-music"></i>
-
-</button>
-
-
-
-<!-- =====================================================
-     SECRET MODAL
-===================================================== -->
+<!-- SECRET MODAL -->
 
 <div
     class="modal"
     id="secretModal">
 
-
     <div class="modal-box">
-
 
         <button
             class="close"
-            onclick="closeSecret()">
+            onclick="closeModal()">
 
             ×
 
@@ -2103,16 +1556,21 @@ body.secret .container{
         <div class="modal-section">
 
             <strong>
+
                 <i class="fa-solid fa-fingerprint"></i>
+
                 DIGITAL ID
+
             </strong>
 
             <p>
+
                 AMIRALI ASGHARI
                 <br>
                 ACCESS LEVEL: PREMIUM
                 <br>
                 STATUS: ONLINE
+
             </p>
 
         </div>
@@ -2121,8 +1579,11 @@ body.secret .container{
         <div class="modal-section">
 
             <strong>
+
                 <i class="fa-solid fa-qrcode"></i>
+
                 MY QR CODE
+
             </strong>
 
             <div id="qrcode"></div>
@@ -2133,33 +1594,42 @@ body.secret .container{
         <div class="modal-section">
 
             <strong>
+
                 <i class="fa-solid fa-terminal"></i>
+
                 SYSTEM
+
             </strong>
 
             <p id="systemInfo">
+
                 Initializing...
+
             </p>
 
         </div>
-
 
     </div>
 
 </div>
 
 
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
 
 <script>
 
-/* =========================================================
-   CREATE STARS
-========================================================= */
+/* STARS */
 
 const stars =
 document.getElementById("stars");
 
-for(let i=0;i<35;i++){
+for(let i=0;i<40;i++){
 
     const star =
     document.createElement("div");
@@ -2179,17 +1649,13 @@ for(let i=0;i<35;i++){
         Math.random();
 
     stars.appendChild(star);
-
 }
 
 
-/* =========================================================
-   TOUCH LIGHT
-========================================================= */
+/* TOUCH LIGHT */
 
 const light =
 document.querySelector(".touch-light");
-
 
 function moveLight(x,y){
 
@@ -2197,7 +1663,6 @@ function moveLight(x,y){
     light.style.top=y+"px";
 
 }
-
 
 document.addEventListener(
     "mousemove",
@@ -2208,7 +1673,6 @@ document.addEventListener(
         );
     }
 );
-
 
 document.addEventListener(
     "touchmove",
@@ -2228,19 +1692,16 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   3D DESKTOP EFFECT
-========================================================= */
+/* 3D */
 
 const card =
 document.getElementById("card");
-
 
 document.addEventListener(
     "mousemove",
     e=>{
 
-        if(window.innerWidth < 700)
+        if(window.innerWidth<700)
             return;
 
         const x =
@@ -2256,20 +1717,7 @@ document.addEventListener(
 );
 
 
-document.addEventListener(
-    "mouseleave",
-    ()=>{
-
-        card.style.transform=
-            "rotateY(0deg) rotateX(0deg)";
-
-    }
-);
-
-
-/* =========================================================
-   MAGNETIC BUTTONS
-========================================================= */
+/* MAGNETIC BUTTONS */
 
 document
 .querySelectorAll(".btn")
@@ -2286,16 +1734,16 @@ document
                 btn.getBoundingClientRect();
 
             const x =
-                e.clientX -
-                rect.left -
+                e.clientX-
+                rect.left-
                 rect.width/2;
 
             const y =
-                e.clientY -
-                rect.top -
+                e.clientY-
+                rect.top-
                 rect.height/2;
 
-            btn.style.transform =
+            btn.style.transform=
                 `translate(${x*.025}px,${y*.025}px)`;
 
         }
@@ -2311,17 +1759,24 @@ document
 });
 
 
-/* =========================================================
-   RIPPLE
-========================================================= */
+/* RIPPLE */
 
 document
-.querySelectorAll(".btn,.quick-btn,.social")
+.querySelectorAll(
+    ".btn,.quick-btn,.extra-btn,.social"
+)
 .forEach(element=>{
 
     element.addEventListener(
         "click",
         function(e){
+
+            if(
+                getComputedStyle(this)
+                .position==="static"
+            ){
+                this.style.position="relative";
+            }
 
             const rect =
                 this.getBoundingClientRect();
@@ -2339,7 +1794,8 @@ document
             ripple.style.width=size+"px";
             ripple.style.height=size+"px";
             ripple.style.borderRadius="50%";
-            ripple.style.background="rgba(255,255,255,.18)";
+            ripple.style.background=
+                "rgba(255,255,255,.18)";
             ripple.style.left=
                 (e.clientX-rect.left-size/2)+"px";
             ripple.style.top=
@@ -2352,13 +1808,16 @@ document
             this.appendChild(ripple);
 
             requestAnimationFrame(()=>{
+
                 ripple.style.transform="scale(2)";
                 ripple.style.opacity="0";
+
             });
 
-            setTimeout(()=>{
-                ripple.remove();
-            },700);
+            setTimeout(
+                ()=>ripple.remove(),
+                700
+            );
 
         }
     );
@@ -2366,35 +1825,32 @@ document
 });
 
 
-/* =========================================================
-   COPY
-========================================================= */
+/* COPY */
 
 function copyText(text,label){
 
-    navigator.clipboard
-    .writeText(text)
-    .then(()=>{
+    if(navigator.clipboard){
 
-        showToast(
-            label+" کپی شد ✓"
-        );
+        navigator.clipboard
+        .writeText(text)
+        .then(()=>{
 
-    })
-    .catch(()=>{
+            showToast(
+                label+" کپی شد ✓"
+            );
 
-        showToast(
-            text
-        );
+        });
 
-    });
+    }else{
+
+        showToast(text);
+
+    }
 
 }
 
 
-/* =========================================================
-   SAVE CONTACT
-========================================================= */
+/* SAVE CONTACT */
 
 function saveContact(){
 
@@ -2430,38 +1886,31 @@ END:VCARD`;
     URL.revokeObjectURL(url);
 
     showToast(
-        "فایل مخاطب آماده شد ✓"
+        "مخاطب آماده ذخیره شد ✓"
     );
-
 }
 
 
-/* =========================================================
-   SHARE
-========================================================= */
+/* SHARE */
 
 async function sharePage(){
 
-    const data={
-
-        title:
-            "Amirali Asghari",
-
-        text:
-            "Digital Contact Card",
-
-        url:
-            location.href
-
-    };
-
-    if(
-        navigator.share
-    ){
+    if(navigator.share){
 
         try{
 
-            await navigator.share(data);
+            await navigator.share({
+
+                title:
+                    "Amirali Asghari",
+
+                text:
+                    "Digital Contact Card",
+
+                url:
+                    location.href
+
+            });
 
         }catch(e){}
 
@@ -2473,151 +1922,59 @@ async function sharePage(){
         );
 
     }
-
 }
 
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* QR */
 
-function showToast(message){
-
-    const toast =
-        document.createElement("div");
-
-    toast.innerText=message;
-
-    toast.style.position="fixed";
-    toast.style.bottom="80px";
-    toast.style.left="50%";
-    toast.style.transform=
-        "translateX(-50%)";
-    toast.style.zIndex="200";
-    toast.style.padding=
-        "12px 20px";
-    toast.style.borderRadius="14px";
-    toast.style.background=
-        "rgba(2,20,35,.95)";
-    toast.style.border=
-        "1px solid #00bfff";
-    toast.style.color="#fff";
-    toast.style.fontSize="13px";
-    toast.style.boxShadow=
-        "0 0 25px rgba(0,170,255,.4)";
-    toast.style.backdropFilter=
-        "blur(15px)";
-
-    document.body.appendChild(toast);
-
-    setTimeout(()=>{
-        toast.style.opacity="0";
-        toast.style.transition=".3s";
-    },1800);
-
-    setTimeout(()=>{
-        toast.remove();
-    },2200);
-
-}
-
-
-/* =========================================================
-   CLOCK
-========================================================= */
-
-function updateClock(){
-
-    const now =
-        new Date();
-
-    const time =
-        now.toLocaleTimeString(
-            "fa-IR",
-            {
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit"
-            }
-        );
+function openQR(){
 
     document
-    .getElementById("clock")
-    .innerText=
-        "LOCAL TIME • "+time;
+        .getElementById("secretModal")
+        .classList
+        .add("show");
+
+    generateQR();
+
+    document
+        .getElementById("systemInfo")
+        .innerHTML=
+        "QR CODE READY ✓";
 
 }
 
-setInterval(
-    updateClock,
-    1000
-);
+function generateQR(){
 
-updateClock();
+    const box =
+        document.getElementById("qrcode");
 
+    box.innerHTML="";
 
-/* =========================================================
-   MUSIC
-========================================================= */
+    const img =
+        document.createElement("img");
 
-const music =
-document.getElementById("music");
+    img.src=
+        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+
+        encodeURIComponent(location.href);
 
-const musicButton =
-document.getElementById("musicButton");
+    img.alt="QR Code";
 
-
-let playing=false;
+    box.appendChild(img);
+}
 
 
-musicButton.addEventListener(
-    "click",
-    async ()=>{
+/* INSTALL */
 
-        if(!playing){
+function showInstallInfo(){
 
-            try{
+    showToast(
+        "از منوی مرورگر گزینه Add to Home Screen را بزن"
+    );
 
-                await music.play();
-
-                playing=true;
-
-                musicButton.classList
-                    .add("playing");
-
-                musicButton.innerHTML=
-                    '<i class="fa-solid fa-pause"></i>';
-
-            }catch(e){
-
-                showToast(
-                    "فایل music.mp3 را کنار index.html قرار بده"
-                );
-
-            }
-
-        }else{
-
-            music.pause();
-
-            playing=false;
-
-            musicButton.classList
-                .remove("playing");
-
-            musicButton.innerHTML=
-                '<i class="fa-solid fa-music"></i>';
-
-        }
-
-    }
-);
+}
 
 
-/* =========================================================
-   SECRET MODE
-   3 TAPS ON PROFILE
-========================================================= */
+/* SECRET MODE - 3 TAPS */
 
 const profile =
 document.getElementById("profile");
@@ -2625,11 +1982,8 @@ document.getElementById("profile");
 const secretModal =
 document.getElementById("secretModal");
 
-
 let taps=0;
-
 let tapTimer;
-
 
 profile.addEventListener(
     "click",
@@ -2639,13 +1993,12 @@ profile.addEventListener(
 
         clearTimeout(tapTimer);
 
-        tapTimer =
-            setTimeout(
-                ()=>{
-                    taps=0;
-                },
-                1000
-            );
+        tapTimer=setTimeout(
+            ()=>{
+                taps=0;
+            },
+            1000
+        );
 
         if(taps===3){
 
@@ -2659,9 +2012,7 @@ profile.addEventListener(
 );
 
 
-/* =========================================================
-   SECRET OPEN
-========================================================= */
+/* OPEN SECRET */
 
 function openSecret(){
 
@@ -2679,7 +2030,7 @@ function openSecret(){
         .getElementById("systemInfo")
         .innerHTML=
         `
-        DEVICE: ${navigator.userAgent.substring(0,45)}
+        DEVICE: ${navigator.userAgent.substring(0,50)}
         <br>
         SCREEN: ${window.innerWidth} × ${window.innerHeight}
         <br>
@@ -2691,11 +2042,9 @@ function openSecret(){
 }
 
 
-/* =========================================================
-   SECRET CLOSE
-========================================================= */
+/* CLOSE MODAL */
 
-function closeSecret(){
+function closeModal(){
 
     secretModal
         .classList
@@ -2707,18 +2056,13 @@ function closeSecret(){
 
 }
 
-
-/* =========================================================
-   CLOSE MODAL OUTSIDE
-========================================================= */
-
 secretModal.addEventListener(
     "click",
     e=>{
 
         if(e.target===secretModal){
 
-            closeSecret();
+            closeModal();
 
         }
 
@@ -2726,40 +2070,7 @@ secretModal.addEventListener(
 );
 
 
-/* =========================================================
-   QR CODE
-========================================================= */
-
-function generateQR(){
-
-    const box =
-        document.getElementById("qrcode");
-
-    box.innerHTML="";
-
-    const img =
-        document.createElement("img");
-
-    const url =
-        encodeURIComponent(
-            location.href
-        );
-
-    img.src=
-        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="
-        +url;
-
-    img.alt=
-        "QR Code";
-
-    box.appendChild(img);
-
-}
-
-
-/* =========================================================
-   ESC CLOSE
-========================================================= */
+/* ESC */
 
 document.addEventListener(
     "keydown",
@@ -2767,7 +2078,7 @@ document.addEventListener(
 
         if(e.key==="Escape"){
 
-            closeSecret();
+            closeModal();
 
         }
 
@@ -2775,13 +2086,11 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   VIBRATION
-========================================================= */
+/* VIBRATION */
 
 document
 .querySelectorAll(
-    ".btn,.quick-btn,.social,.music"
+    ".btn,.quick-btn,.extra-btn,.social"
 )
 .forEach(el=>{
 
@@ -2789,9 +2098,7 @@ document
         "click",
         ()=>{
 
-            if(
-                navigator.vibrate
-            ){
+            if(navigator.vibrate){
 
                 navigator.vibrate(12);
 
@@ -2803,25 +2110,31 @@ document
 });
 
 
-/* =========================================================
-   PAGE VISIBILITY
-========================================================= */
+/* TOAST */
 
-document.addEventListener(
-    "visibilitychange",
-    ()=>{
+function showToast(message){
 
-        if(
-            document.hidden &&
-            playing
-        ){
+    const toast =
+        document.getElementById("toast");
 
-            music.pause();
+    toast.innerText=message;
 
-        }
+    toast.classList.add("show");
 
-    }
-);
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer=
+        setTimeout(
+            ()=>{
+                toast.classList
+                    .remove("show");
+            },
+            2200
+        );
+
+}
 
 </script>
 
