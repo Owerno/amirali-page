@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amirali Asghari</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 20%, #003b70 0%, transparent 30%),
+                radial-gradient(circle at 10% 80%, #001b38 0%, transparent 30%),
+                #03070d;
+
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+
+            overflow-x: hidden;
+        }
+
+        /* افکت نور پس زمینه */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+
+            background: #008cff;
+            filter: blur(180px);
+            opacity: 0.12;
+
+            top: 10%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+
+            padding: 45px 20px 35px;
+
+            text-align: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* عکس پروفایل */
+
+        .profile {
+            width: 145px;
+            height: 145px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            padding: 5px;
+
+            background: linear-gradient(
+                135deg,
+                #00aaff,
+                #006eff,
+                #00d9ff
+            );
+
+            box-shadow:
+                0 0 20px #008cff,
+                0 0 60px rgba(0, 140, 255, 0.5);
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 4px solid #03070d;
+        }
+
+        /* اسم */
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+
+            letter-spacing: 1px;
+        }
+
+        h1 span {
+            color: #00aaff;
+
+            text-shadow:
+                0 0 10px #008cff,
+                0 0 25px rgba(0, 140, 255, 0.6);
+        }
+
+        .subtitle {
+            color: #aaa;
+            font-size: 15px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 35px;
+        }
+
+        .line {
+            width: 70px;
+            height: 3px;
+
+            background: #00aaff;
+
+            margin: 0 auto 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 0 15px #008cff;
+        }
+
+        /* دکمه ها */
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .btn {
+            width: 100%;
+
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 12px 18px;
+
+            text-decoration: none;
+            color: white;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(0, 94, 170, 0.45),
+                    rgba(2, 15, 30, 0.9)
+                );
+
+            border: 1px solid rgba(0, 174, 255, 0.7);
+
+            box-shadow:
+                0 0 12px rgba(0, 153, 255, 0.25),
+                inset 0 0 20px rgba(0, 140, 255, 0.08);
+
+            transition: all 0.25s ease;
+
+            direction: rtl;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.015);
+
+            border-color: #00c8ff;
+
+            box-shadow:
+                0 0 20px rgba(0, 174, 255, 0.7),
+                0 0 50px rgba(0, 140, 255, 0.25);
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(0, 130, 230, 0.65),
+                    rgba(2, 20, 40, 0.95)
+                );
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #00b7ff,
+                #006eff
+            );
+
+            box-shadow:
+                0 0 15px rgba(0, 174, 255, 0.7);
+
+            font-size: 23px;
+
+            margin-left: 15px;
+        }
+
+        .text {
+            flex: 1;
+            text-align: right;
+        }
+
+        .text strong {
+            display: block;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+        .text small {
+            color: #b9c7d5;
+
+            font-size: 13px;
+
+            direction: ltr;
+            display: block;
+        }
+
+        .arrow {
+            font-size: 30px;
+            color: #70d7ff;
+
+            margin-right: 8px;
+        }
+
+        /* پایین صفحه */
+
+        .follow {
+            margin-top: 40px;
+        }
+
+        .follow-title {
+            color: #ddd;
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .social {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            text-decoration: none;
+
+            border: 1px solid #009dff;
+
+            background: #061322;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 150, 255, 0.35);
+
+            transition: 0.25s;
+        }
+
+        .social:hover {
+            transform: scale(1.15);
+
+            background: #008cff;
+
+            box-shadow:
+                0 0 25px #008cff;
+        }
+
+        /* مخصوص موبایل */
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 35px 15px 30px;
+            }
+
+            .profile {
+                width: 125px;
+                height: 125px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            .btn {
+                min-height: 72px;
+            }
+
+            .icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <!-- عکس -->
+        <div class="profile">
+            <img src="profile.jpg" alt="Amirali Asghari">
+        </div>
+
+
+        <!-- اسم -->
+        <h1>
+            Amirali <span>Asghari</span>
+        </h1>
+
+        <div class="subtitle">
+            STAY CONNECTED
+        </div>
+
+        <div class="line"></div>
+
+
+        <!-- دکمه ها -->
+
+        <div class="buttons">
+
+            <!-- تلفن -->
+            <a class="btn" href="tel:+989962053197">
+
+                <div class="icon">📞</div>
+
+                <div class="text">
+                    <strong>شماره تلفن</strong>
+                    <small>+98 996 205 3197</small>
+                </div>
+
+                <div class="arrow">‹</div>
+
+            </a>
+
+
+            <!-- اینستاگرام -->
+            <a class="btn"
+               href="https://instagram.com/_amirgk"
+               target="_blank">
+
+                <div class="icon">◎</div>
+
+                <div class="text">
+                    <strong>اینستاگرام</strong>
+                    <small>instagram.com/_amirgk</small>
+                </div>
+
+                <div class="arrow">‹</div>
+
+            </a>
+
+
+            <!-- تلگرام -->
+            <a class="btn"
+               href="https://t.me/Am_xo_ir"
+               target="_blank">
+
+                <div class="icon">➤</div>
+
+                <div class="text">
+                    <strong>تلگرام</strong>
+                    <small>t.me/Am_xo_ir</small>
+                </div>
+
+                <div class="arrow">‹</div>
+
+            </a>
+
+
+            <!-- واتساپ -->
+            <a class="btn"
+               href="https://wa.me/989962053197"
+               target="_blank">
+
+                <div class="icon">◉</div>
+
+                <div class="text">
+                    <strong>واتساپ</strong>
+                    <small>پیام در واتساپ</small>
+                </div>
+
+                <div class="arrow">‹</div>
+
+            </a>
+
+
+            <!-- ایمیل -->
+            <a class="btn"
+               href="mailto:amirgk005@gmail.com">
+
+                <div class="icon">✉</div>
+
+                <div class="text">
+                    <strong>ایمیل</strong>
+                    <small>amirgk005@gmail.com</small>
+                </div>
+
+                <div class="arrow">‹</div>
+
+            </a>
+
+        </div>
+
+
+        <!-- شبکه های اجتماعی پایین -->
+
+        <div class="follow">
+
+            <div class="follow-title">
+                — &nbsp; Follow Me &nbsp; —
+            </div>
+
+            <div class="socials">
+
+                <a class="social"
+                   href="https://instagram.com/USERNAME"
+                   target="_blank">
+                    ◎
+                </a>
+
+                <a class="social"
+                   href="https://t.me/USERNAME"
+                   target="_blank">
+                    ➤
+                </a>
+
+                <a class="social"
+                   href="#">
+                    X
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
