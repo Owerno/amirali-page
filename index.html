@@ -1394,7 +1394,7 @@ h1 span{
                 </strong>
 
                 <small>
-                    +98 996 205 3197
+                    
                 </small>
 
             </div>
@@ -1427,7 +1427,7 @@ h1 span{
                 </strong>
 
                 <small>
-                    instagram.com/_amirgk
+                    
                 </small>
 
             </div>
@@ -1460,7 +1460,7 @@ h1 span{
                 </strong>
 
                 <small>
-                    t.me/Am_xo_ir
+                    
                 </small>
 
             </div>
@@ -1493,7 +1493,7 @@ h1 span{
                 </strong>
 
                 <small>
-                    پیام در واتساپ
+                    
                 </small>
 
             </div>
@@ -1524,7 +1524,7 @@ h1 span{
                 </strong>
 
                 <small>
-                    amirgk005@gmail.com
+                    
                 </small>
 
             </div>
@@ -1745,122 +1745,6 @@ h1 span{
     id="toast">
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-/* ================= SUPABASE ================= */
-const SUPABASE_URL = "https://wchbuouuhofanxtscscv.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_LIIAZGqNVsiEcNeq3Pk89Q_aknPnNwN";
-
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
-
-async function loadSiteData(){
-    try{
-        const { data, error } = await supabaseClient
-            .from("site_settings")
-            .select("*")
-            .eq("id", 1)
-            .single();
-
-        if(error){
-            console.error("Supabase Error:", error);
-            return;
-        }
-
-        if(!data) return;
-
-        /* NAME */
-        if(data.name){
-            document.title = data.name;
-            const h1 = document.querySelector("h1");
-            if(h1){
-                const parts = data.name.trim().split(/\s+/);
-                const first = parts.shift() || "";
-                const last = parts.join(" ");
-                h1.innerHTML = last
-                    ? `${first} <span>${last}</span>`
-                    : first;
-            }
-        }
-
-        /* SUBTITLE */
-        if(data.subtitle){
-            const el = document.querySelector(".subtitle");
-            if(el) el.textContent = data.subtitle;
-        }
-
-        /* PHONE */
-        const phone = document.querySelector('a[href^="tel:"]');
-        if(phone && data.phone){
-            phone.href = "tel:" + data.phone;
-            const small = phone.querySelector("small");
-            if(small) small.textContent = data.phone;
-        }
-
-        /* INSTAGRAM */
-        const instagram = document.querySelector('a[href*="instagram.com"]');
-        if(instagram && data.instagram){
-            instagram.href = data.instagram;
-            const small = instagram.querySelector("small");
-            if(small) small.textContent = data.instagram.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-        }
-
-        /* TELEGRAM */
-        const telegram = document.querySelector('a[href*="t.me"]');
-        if(telegram && data.telegram){
-            telegram.href = data.telegram;
-            const small = telegram.querySelector("small");
-            if(small) small.textContent = data.telegram.replace(/^https?:\/\//, "").replace(/\/$/, "");
-        }
-
-        /* WHATSAPP */
-        const whatsapp = document.querySelector('a[href*="wa.me"]');
-        if(whatsapp && data.whatsapp){
-            whatsapp.href = data.whatsapp;
-            const small = whatsapp.querySelector("small");
-            if(small) small.textContent = "پیام در واتساپ";
-        }
-
-        /* EMAIL */
-        const email = document.querySelector('a[href^="mailto:"]');
-        if(email && data.email){
-            email.href = "mailto:" + data.email;
-            const small = email.querySelector("small");
-            if(small) small.textContent = data.email;
-        }
-
-        /* PROFILE IMAGE */
-        const profile = document.querySelector(".profile img");
-        if(profile && data.profile_image){
-            profile.src = data.profile_image;
-        }
-
-        window.siteData = data;
-        updateQuickActions(data);
-
-    }catch(err){
-        console.error("Supabase connection error:", err);
-    }
-}
-
-function updateQuickActions(data){
-    if(!data) return;
-
-    const copyPhone = document.querySelector('.quick-btn[onclick*="copyText"]');
-    if(copyPhone && data.phone){
-        copyPhone.setAttribute(
-            "onclick",
-            `copyText(${JSON.stringify(data.phone)}, 'شماره تلفن')`
-        );
-    }
-}
-
-loadSiteData();
-</script>
 
 <script>
 
