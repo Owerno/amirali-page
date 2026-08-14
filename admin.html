@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amirali Admin</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+            background:
+                radial-gradient(circle at 50% 0%, #003b70 0%, transparent 32%),
+                radial-gradient(circle at 0% 100%, #001d3d 0%, transparent 35%),
+                #02060b;
+            padding: 20px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #008cff;
+            filter: blur(180px);
+            opacity: .08;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin: 25px 0 30px;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            margin: auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #00c8ff,
+                #006eff
+            );
+
+            box-shadow:
+                0 0 20px #008cff,
+                0 0 55px rgba(0, 140, 255, .35);
+
+            font-size: 30px;
+        }
+
+        h1 {
+            margin-top: 18px;
+            font-size: 28px;
+        }
+
+        h1 span {
+            color: #00b7ff;
+            text-shadow: 0 0 15px #008cff;
+        }
+
+        .subtitle {
+            color: #8ea4b8;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .card {
+            padding: 22px;
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 94, 170, .25),
+                    rgba(2, 10, 20, .88)
+                );
+
+            border: 1px solid rgba(0, 174, 255, .35);
+
+            box-shadow:
+                0 0 25px rgba(0, 140, 255, .12),
+                inset 0 0 30px rgba(0, 140, 255, .04);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .section-title {
+            color: #70d7ff;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            color: #b8c9d8;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            height: 52px;
+            padding: 0 15px;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(0, 174, 255, .3);
+
+            outline: none;
+
+            background: rgba(0, 12, 25, .8);
+
+            color: white;
+
+            font-size: 15px;
+
+            transition: .2s;
+        }
+
+        input:focus {
+            border-color: #00b7ff;
+
+            box-shadow:
+                0 0 15px rgba(0, 174, 255, .25);
+        }
+
+        button {
+            width: 100%;
+            min-height: 52px;
+
+            border: none;
+            border-radius: 15px;
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00b7ff,
+                    #006eff
+                );
+
+            box-shadow:
+                0 0 18px rgba(0, 153, 255, .35);
+
+            transition: .2s;
+        }
+
+        button:active {
+            transform: scale(.98);
+        }
+
+        .logout {
+            margin-top: 12px;
+
+            background:
+                rgba(255, 255, 255, .05);
+
+            border: 1px solid rgba(255, 255, 255, .12);
+
+            box-shadow: none;
+        }
+
+        .login-box {
+            display: none;
+        }
+
+        .admin-box {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .status {
+            text-align: center;
+            min-height: 22px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #70d7ff;
+        }
+
+        .error {
+            color: #ff6b8a;
+        }
+
+        .success {
+            color: #51ffb0;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #70d7ff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,.08);
+            margin: 22px 0;
+        }
+
+        @media(max-width:500px) {
+            body {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="logo">
+            ⚡
+        </div>
+
+        <h1>
+            Amirali <span>Admin</span>
+        </h1>
+
+        <div class="subtitle">
+            CONTROL PANEL
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div id="loginBox" class="card login-box">
+
+        <div class="section-title">
+            🔐 ورود به پنل مدیریت
+        </div>
+
+        <div class="field">
+
+            <label>
+                ایمیل
+            </label>
+
+            <input
+                id="loginEmail"
+                type="email"
+                placeholder="admin@example.com"
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                رمز عبور
+            </label>
+
+            <input
+                id="loginPassword"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+
+        <button onclick="login()">
+            ورود به پنل
+        </button>
+
+        <div id="loginStatus" class="status"></div>
+
+    </div>
+
+
+    <!-- ADMIN -->
+
+    <div id="adminBox" class="card admin-box">
+
+        <div class="section-title">
+            ⚙️ مدیریت اطلاعات سایت
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                نام
+            </label>
+
+            <input id="name">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                شماره تلفن
+            </label>
+
+            <input id="phone">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                لینک اینستاگرام
+            </label>
+
+            <input id="instagram">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                لینک تلگرام
+            </label>
+
+            <input id="telegram">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                لینک واتساپ
+            </label>
+
+            <input id="whatsapp">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                ایمیل
+            </label>
+
+            <input id="email">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                متن زیر اسم
+            </label>
+
+            <input id="subtitle">
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <button onclick="saveData()">
+            💾 ذخیره تغییرات
+        </button>
+
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            🚪 خروج
+        </button>
+
+
+        <div id="saveStatus" class="status"></div>
+
+    </div>
+
+
+    <a
+        class="back"
+        href="./"
+    >
+        ← بازگشت به سایت
+    </a>
+
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://wchbuouuhofanxtscscv.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_LIIAZGqNVsiEcNeq3Pk89Q_aknPnNwN";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+
+/* =========================
+   START
+========================= */
+
+checkUser();
+
+
+
+/* =========================
+   CHECK USER
+========================= */
+
+async function checkUser(){
+
+    const {
+        data: { user }
+    } = await supabaseClient
+        .auth
+        .getUser();
+
+
+    if(user){
+
+        showAdmin();
+
+        loadData();
+
+    }else{
+
+        showLogin();
+
+    }
+
+}
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+async function login(){
+
+    const email =
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const status =
+        document
+        .getElementById("loginStatus");
+
+
+    status.className = "status";
+    status.innerText = "در حال ورود...";
+
+
+    const {
+        error
+    } = await supabaseClient
+        .auth
+        .signInWithPassword({
+            email,
+            password
+        });
+
+
+    if(error){
+
+        status.className =
+            "status error";
+
+        status.innerText =
+            "ایمیل یا رمز عبور اشتباه است.";
+
+        return;
+
+    }
+
+
+    status.className =
+        "status success";
+
+    status.innerText =
+        "ورود موفق بود ✓";
+
+
+    setTimeout(() => {
+
+        showAdmin();
+
+        loadData();
+
+    }, 500);
+
+}
+
+
+
+/* =========================
+   LOAD DATA
+========================= */
+
+async function loadData(){
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("site_settings")
+        .select("*")
+        .eq("id", 1)
+        .single();
+
+
+    if(error){
+
+        showSaveStatus(
+            "خطا در دریافت اطلاعات",
+            true
+        );
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+    document.getElementById("name").value =
+        data.name || "";
+
+
+    document.getElementById("phone").value =
+        data.phone || "";
+
+
+    document.getElementById("instagram").value =
+        data.instagram || "";
+
+
+    document.getElementById("telegram").value =
+        data.telegram || "";
+
+
+    document.getElementById("whatsapp").value =
+        data.whatsapp || "";
+
+
+    document.getElementById("email").value =
+        data.email || "";
+
+
+    document.getElementById("subtitle").value =
+        data.subtitle || "";
+
+}
+
+
+
+/* =========================
+   SAVE DATA
+========================= */
+
+async function saveData(){
+
+    showSaveStatus(
+        "در حال ذخیره..."
+    );
+
+
+    const updateData = {
+
+        name:
+            document.getElementById("name").value.trim(),
+
+        phone:
+            document.getElementById("phone").value.trim(),
+
+        instagram:
+            document.getElementById("instagram").value.trim(),
+
+        telegram:
+            document.getElementById("telegram").value.trim(),
+
+        whatsapp:
+            document.getElementById("whatsapp").value.trim(),
+
+        email:
+            document.getElementById("email").value.trim(),
+
+        subtitle:
+            document.getElementById("subtitle").value.trim()
+
+    };
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("site_settings")
+        .update(updateData)
+        .eq("id", 1);
+
+
+    if(error){
+
+        console.error(error);
+
+        showSaveStatus(
+            "ذخیره انجام نشد ❌",
+            true
+        );
+
+        return;
+
+    }
+
+
+    showSaveStatus(
+        "تغییرات با موفقیت ذخیره شد ✓",
+        false,
+        true
+    );
+
+}
+
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function logout(){
+
+    await supabaseClient
+        .auth
+        .signOut();
+
+    showLogin();
+
+}
+
+
+
+/* =========================
+   UI
+========================= */
+
+function showLogin(){
+
+    document
+        .getElementById("loginBox")
+        .classList
+        .add("show");
+
+
+    document
+        .getElementById("adminBox")
+        .classList
+        .remove("show");
+
+}
+
+
+function showAdmin(){
+
+    document
+        .getElementById("loginBox")
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById("adminBox")
+        .classList
+        .add("show");
+
+}
+
+
+
+/* =========================
+   STATUS
+========================= */
+
+function showSaveStatus(
+    message,
+    error = false,
+    success = false
+){
+
+    const status =
+        document
+        .getElementById("saveStatus");
+
+
+    status.className =
+        "status";
+
+
+    if(error)
+        status.classList.add("error");
+
+
+    if(success)
+        status.classList.add("success");
+
+
+    status.innerText =
+        message;
+
+}
+
+</script>
+
+</body>
+</html>
