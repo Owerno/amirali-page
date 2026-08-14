@@ -35,7 +35,7 @@ body{
     overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 
 #universe{
     position:fixed;
@@ -85,18 +85,24 @@ body{
 }
 
 @keyframes orb1{
-    to{transform:translate(180px,230px) scale(1.35);}
+    to{
+        transform:translate(180px,230px) scale(1.35);
+    }
 }
 
 @keyframes orb2{
-    to{transform:translate(-170px,120px) scale(1.4);}
+    to{
+        transform:translate(-170px,120px) scale(1.4);
+    }
 }
 
 @keyframes orb3{
-    to{transform:translate(100px,-150px) scale(1.4);}
+    to{
+        transform:translate(100px,-150px) scale(1.4);
+    }
 }
 
-/* GRID */
+/* ================= GRID ================= */
 
 .grid{
     position:absolute;
@@ -120,10 +126,12 @@ body{
 }
 
 @keyframes gridMove{
-    to{background-position:0 45px,45px 0;}
+    to{
+        background-position:0 45px,45px 0;
+    }
 }
 
-/* STARS */
+/* ================= STARS ================= */
 
 #stars{
     position:absolute;
@@ -145,12 +153,15 @@ body{
 }
 
 @keyframes starFall{
+
     from{
         transform:translateY(110vh) scale(.2);
         opacity:0;
     }
 
-    10%{opacity:1;}
+    10%{
+        opacity:1;
+    }
 
     50%{
         transform:translateY(50vh) scale(1.5);
@@ -162,7 +173,7 @@ body{
     }
 }
 
-/* METEORS */
+/* ================= METEORS ================= */
 
 .meteor{
     position:absolute;
@@ -182,6 +193,7 @@ body{
         0 0 25px #008cff;
 
     transform:rotate(-35deg);
+
     opacity:0;
 
     animation:meteor 8s linear infinite;
@@ -209,24 +221,33 @@ body{
 
     0%,75%{
         opacity:0;
-        transform:translate(0,0) rotate(-35deg);
+        transform:
+            translate(0,0)
+            rotate(-35deg);
     }
 
-    78%{opacity:1;}
+    78%{
+        opacity:1;
+    }
 
     100%{
         opacity:0;
-        transform:translate(-500px,500px) rotate(-35deg);
+        transform:
+            translate(-500px,500px)
+            rotate(-35deg);
     }
 }
 
-/* SCANLINES */
+/* ================= SCANLINES ================= */
 
 .scanlines{
     position:fixed;
     inset:0;
+
     z-index:3;
+
     pointer-events:none;
+
     opacity:.07;
 
     background:
@@ -238,42 +259,18 @@ body{
         );
 }
 
-/* TOUCH LIGHT */
-
-.touch-light{
-    position:fixed;
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:4;
-
-    transform:translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,200,255,.20),
-            transparent 65%
-        );
-
-    filter:blur(12px);
-
-    transition:
-        left .12s ease,
-        top .12s ease;
-}
-
-/* MAIN */
+/* ================= MAIN ================= */
 
 .container{
     width:100%;
     max-width:480px;
+
     margin:auto;
 
     padding:42px 14px 45px;
 
     position:relative;
+
     z-index:10;
 
     text-align:center;
@@ -281,7 +278,7 @@ body{
     transition:transform .2s ease;
 }
 
-/* HUD */
+/* ================= HUD ================= */
 
 .top-hud{
     display:flex;
@@ -291,7 +288,9 @@ body{
     margin-bottom:25px;
 
     font-size:9px;
+
     color:#5e91ad;
+
     letter-spacing:2px;
 }
 
@@ -299,12 +298,14 @@ body{
 .hud-right{
     display:flex;
     align-items:center;
+
     gap:7px;
 }
 
 .online-dot{
     width:7px;
     height:7px;
+
     border-radius:50%;
 
     background:#00ff9d;
@@ -317,13 +318,14 @@ body{
 }
 
 @keyframes pulse{
+
     50%{
         opacity:.35;
         transform:scale(.7);
     }
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
 
 .profile-zone{
     width:180px;
@@ -336,19 +338,19 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-
-    cursor:pointer;
 }
 
 .profile-zone::before{
     content:"";
 
     position:absolute;
+
     inset:-12px;
 
     border-radius:50%;
 
-    border:1px solid rgba(0,200,255,.65);
+    border:
+        1px solid rgba(0,200,255,.65);
 
     box-shadow:
         0 0 20px rgba(0,170,255,.5);
@@ -360,21 +362,33 @@ body{
     content:"";
 
     position:absolute;
+
     inset:-25px;
 
     border-radius:50%;
 
-    border:1px dashed rgba(0,150,255,.28);
+    border:
+        1px dashed rgba(0,150,255,.28);
 
-    animation:spinReverse 15s linear infinite;
+    animation:
+        spinReverse
+        15s
+        linear
+        infinite;
 }
 
 @keyframes spin{
-    to{transform:rotate(360deg);}
+
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 @keyframes spinReverse{
-    to{transform:rotate(-360deg);}
+
+    to{
+        transform:rotate(-360deg);
+    }
 }
 
 .profile{
@@ -396,7 +410,11 @@ body{
 
     background-size:400% 400%;
 
-    animation:gradient 4s ease infinite;
+    animation:
+        gradient
+        4s
+        ease
+        infinite;
 
     box-shadow:
         0 0 20px #008cff,
@@ -404,14 +422,23 @@ body{
         0 0 110px rgba(0,140,255,.25);
 
     position:relative;
+
     z-index:2;
 }
 
 @keyframes gradient{
 
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 .profile img{
@@ -425,11 +452,13 @@ body{
     border:4px solid #01040a;
 }
 
-/* NAME */
+/* ================= NAME ================= */
 
 h1{
     font-size:34px;
+
     margin-bottom:8px;
+
     letter-spacing:1px;
 
     text-shadow:
@@ -447,8 +476,11 @@ h1 span{
 
 .subtitle{
     color:#7f9aac;
+
     letter-spacing:5px;
+
     font-size:12px;
+
     margin-bottom:18px;
 }
 
@@ -466,34 +498,45 @@ h1 span{
             transparent
         );
 
-    box-shadow:0 0 15px #008cff;
+    box-shadow:
+        0 0 15px #008cff;
 
-    animation:linePulse 2s infinite alternate;
+    animation:
+        linePulse
+        2s
+        infinite
+        alternate;
 }
 
 @keyframes linePulse{
+
     to{
         width:170px;
-        box-shadow:0 0 30px #00bfff;
+
+        box-shadow:
+            0 0 30px #00bfff;
     }
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
 
 .buttons{
     display:flex;
     flex-direction:column;
+
     gap:14px;
 }
 
 .btn{
     width:100%;
+
     min-height:76px;
 
     display:flex;
     align-items:center;
 
     position:relative;
+
     overflow:hidden;
 
     padding:11px 17px;
@@ -501,6 +544,7 @@ h1 span{
     border-radius:21px;
 
     color:white;
+
     text-decoration:none;
 
     background:
@@ -524,24 +568,47 @@ h1 span{
         box-shadow .25s ease,
         border .25s ease;
 
-    animation:buttonIn .7s ease both;
+    animation:
+        buttonIn
+        .7s
+        ease
+        both;
 }
 
-.btn:nth-child(1){animation-delay:.1s}
-.btn:nth-child(2){animation-delay:.2s}
-.btn:nth-child(3){animation-delay:.3s}
-.btn:nth-child(4){animation-delay:.4s}
-.btn:nth-child(5){animation-delay:.5s}
+.btn:nth-child(1){
+    animation-delay:.1s;
+}
+
+.btn:nth-child(2){
+    animation-delay:.2s;
+}
+
+.btn:nth-child(3){
+    animation-delay:.3s;
+}
+
+.btn:nth-child(4){
+    animation-delay:.4s;
+}
+
+.btn:nth-child(5){
+    animation-delay:.5s;
+}
 
 @keyframes buttonIn{
+
     from{
         opacity:0;
-        transform:translateY(30px) scale(.94);
+        transform:
+            translateY(30px)
+            scale(.94);
     }
 
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
@@ -586,7 +653,7 @@ h1 span{
         inset 0 0 30px rgba(0,180,255,.1);
 }
 
-/* ICONS */
+/* ================= ICONS ================= */
 
 .icon{
     width:50px;
@@ -614,71 +681,121 @@ h1 span{
 }
 
 .phone{
-    background:linear-gradient(135deg,#00d9ff,#006eff);
-    box-shadow:0 0 18px rgba(0,180,255,.5);
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #006eff
+        );
+
+    box-shadow:
+        0 0 18px rgba(0,180,255,.5);
 }
 
 .instagram{
-    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-    box-shadow:0 0 18px rgba(253,29,29,.3);
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+
+    box-shadow:
+        0 0 18px rgba(253,29,29,.3);
 }
 
 .telegram{
-    background:linear-gradient(135deg,#2AABEE,#229ED9);
-    box-shadow:0 0 18px rgba(42,171,238,.5);
+    background:
+        linear-gradient(
+            135deg,
+            #2AABEE,
+            #229ED9
+        );
+
+    box-shadow:
+        0 0 18px rgba(42,171,238,.5);
 }
 
 .whatsapp{
-    background:linear-gradient(135deg,#25D366,#128C7E);
-    box-shadow:0 0 18px rgba(37,211,102,.4);
+    background:
+        linear-gradient(
+            135deg,
+            #25D366,
+            #128C7E
+        );
+
+    box-shadow:
+        0 0 18px rgba(37,211,102,.4);
 }
 
 .email{
-    background:linear-gradient(135deg,#00d9ff,#006eff);
-    box-shadow:0 0 18px rgba(0,180,255,.5);
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #006eff
+        );
+
+    box-shadow:
+        0 0 18px rgba(0,180,255,.5);
 }
 
-/* TEXT */
+/* ================= TEXT ================= */
 
 .text{
     flex:1;
+
     text-align:right;
 }
 
 .text strong{
     display:block;
+
     font-size:17px;
+
     margin-bottom:5px;
 }
 
 .text small{
     display:block;
+
     direction:ltr;
+
     color:#91aabd;
+
     font-size:11px;
 }
 
 .arrow{
     color:#72ddff;
+
     font-size:30px;
+
     margin-right:7px;
+
     transition:.3s;
 }
 
 .btn:hover .arrow{
     transform:translateX(-6px);
+
     color:white;
 
     text-shadow:
         0 0 15px #00c8ff;
 }
 
-/* QUICK */
+/* ================= QUICK ACTIONS ================= */
 
 .quick{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:9px;
+
     margin-top:15px;
 }
 
@@ -696,6 +813,7 @@ h1 span{
     min-height:52px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -712,6 +830,7 @@ h1 span{
 
 .quick-btn:hover,
 .quick-btn:active{
+
     background:
         rgba(0,130,220,.35);
 
@@ -720,17 +839,19 @@ h1 span{
     box-shadow:
         0 0 20px rgba(0,160,255,.3);
 
-    transform:translateY(-3px);
+    transform:
+        translateY(-3px);
 }
 
-/* EXTRA */
+/* ================= EXTRA ACTIONS ================= */
 
 .extra-actions{
     margin-top:10px;
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
     gap:9px;
 }
@@ -767,6 +888,7 @@ h1 span{
 }
 
 .extra-btn:hover{
+
     color:white;
 
     border-color:#00c8ff;
@@ -774,10 +896,11 @@ h1 span{
     box-shadow:
         0 0 18px rgba(0,180,255,.3);
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
-/* NFC */
+/* ================= NFC ================= */
 
 .nfc{
     margin-top:20px;
@@ -807,19 +930,26 @@ h1 span{
 .nfc i{
     color:#00c8ff;
 
-    animation:nfcPulse 1.5s infinite;
+    animation:
+        nfcPulse
+        1.5s
+        infinite;
 }
 
 @keyframes nfcPulse{
+
     50%{
         transform:scale(1.3);
 
         filter:
-            drop-shadow(0 0 10px #00c8ff);
+            drop-shadow(
+                0 0 10px
+                #00c8ff
+            );
     }
 }
 
-/* FOLLOW */
+/* ================= FOLLOW ================= */
 
 .follow{
     margin-top:35px;
@@ -827,14 +957,19 @@ h1 span{
 
 .follow-title{
     color:#a8c0cf;
+
     letter-spacing:2px;
+
     margin-bottom:17px;
+
     font-size:14px;
 }
 
 .socials{
     display:flex;
+
     justify-content:center;
+
     gap:16px;
 }
 
@@ -845,10 +980,12 @@ h1 span{
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     color:white;
+
     text-decoration:none;
 
     border:
@@ -866,6 +1003,7 @@ h1 span{
 }
 
 .social:hover{
+
     transform:
         translateY(-6px)
         scale(1.12);
@@ -876,19 +1014,23 @@ h1 span{
         0 0 25px #008cff;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 .footer{
     margin-top:25px;
+
     color:#385266;
+
     font-size:9px;
+
     letter-spacing:2px;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
+
     inset:0;
 
     z-index:100;
@@ -912,9 +1054,11 @@ h1 span{
 
 .modal-box{
     width:100%;
+
     max-width:390px;
 
     max-height:90vh;
+
     overflow:auto;
 
     border:
@@ -935,14 +1079,19 @@ h1 span{
         0 0 30px rgba(0,170,255,.35),
         0 0 100px rgba(0,100,255,.15);
 
-    animation:modalIn .35s ease;
+    animation:
+        modalIn
+        .35s
+        ease;
 
     position:relative;
 }
 
 @keyframes modalIn{
+
     from{
         opacity:0;
+
         transform:
             scale(.85)
             translateY(20px);
@@ -950,6 +1099,7 @@ h1 span{
 
     to{
         opacity:1;
+
         transform:
             scale(1)
             translateY(0);
@@ -967,7 +1117,8 @@ h1 span{
 
     border-radius:50%;
 
-    border:1px solid #008cff;
+    border:
+        1px solid #008cff;
 
     background:#061522;
 
@@ -1017,7 +1168,7 @@ h1 span{
     line-height:1.8;
 }
 
-/* QR */
+/* ================= QR ================= */
 
 #qrcode{
     width:220px;
@@ -1041,36 +1192,7 @@ h1 span{
     max-width:100%;
 }
 
-/* SECRET */
-
-.secret-mode{
-    position:fixed;
-
-    inset:0;
-
-    z-index:90;
-
-    pointer-events:none;
-
-    opacity:0;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(0,255,255,.03) 0px,
-            rgba(0,255,255,.03) 1px,
-            transparent 2px,
-            transparent 5px
-        );
-
-    transition:.4s;
-}
-
-body.secret .secret-mode{
-    opacity:1;
-}
-
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
@@ -1116,7 +1238,7 @@ body.secret .secret-mode{
         translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
@@ -1136,12 +1258,14 @@ body.secret .secret-mode{
 
     .btn{
         min-height:72px;
+
         border-radius:19px;
     }
 
     .icon{
         width:45px;
         height:45px;
+
         margin-left:11px;
     }
 
@@ -1160,12 +1284,14 @@ body.secret .secret-mode{
 
 <body>
 
-<!-- BACKGROUND -->
+<!-- ================= BACKGROUND ================= -->
 
 <div id="universe">
 
     <div class="orb orb1"></div>
+
     <div class="orb orb2"></div>
+
     <div class="orb orb3"></div>
 
     <div class="grid"></div>
@@ -1173,21 +1299,22 @@ body.secret .secret-mode{
     <div id="stars"></div>
 
     <div class="meteor meteor1"></div>
+
     <div class="meteor meteor2"></div>
+
     <div class="meteor meteor3"></div>
 
 </div>
 
 <div class="scanlines"></div>
 
-<div class="touch-light"></div>
 
-<div class="secret-mode"></div>
-
-
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
 
 <main class="container" id="card">
+
+
+    <!-- HUD -->
 
     <div class="top-hud">
 
@@ -1210,9 +1337,7 @@ body.secret .secret-mode{
 
     <!-- PROFILE -->
 
-    <div
-        class="profile-zone"
-        id="profile">
+    <div class="profile-zone">
 
         <div class="profile">
 
@@ -1245,7 +1370,7 @@ body.secret .secret-mode{
     <div class="line"></div>
 
 
-    <!-- CONTACT BUTTONS -->
+    <!-- ================= CONTACT BUTTONS ================= -->
 
     <div class="buttons">
 
@@ -1264,7 +1389,9 @@ body.secret .secret-mode{
 
             <div class="text">
 
-                <strong>شماره تلفن</strong>
+                <strong>
+                    شماره تلفن
+                </strong>
 
                 <small>
                     +98 996 205 3197
@@ -1272,7 +1399,9 @@ body.secret .secret-mode{
 
             </div>
 
-            <div class="arrow">‹</div>
+            <div class="arrow">
+                ‹
+            </div>
 
         </a>
 
@@ -1293,7 +1422,9 @@ body.secret .secret-mode{
 
             <div class="text">
 
-                <strong>اینستاگرام</strong>
+                <strong>
+                    اینستاگرام
+                </strong>
 
                 <small>
                     instagram.com/_amirgk
@@ -1301,7 +1432,9 @@ body.secret .secret-mode{
 
             </div>
 
-            <div class="arrow">‹</div>
+            <div class="arrow">
+                ‹
+            </div>
 
         </a>
 
@@ -1322,7 +1455,9 @@ body.secret .secret-mode{
 
             <div class="text">
 
-                <strong>تلگرام</strong>
+                <strong>
+                    تلگرام
+                </strong>
 
                 <small>
                     t.me/Am_xo_ir
@@ -1330,7 +1465,9 @@ body.secret .secret-mode{
 
             </div>
 
-            <div class="arrow">‹</div>
+            <div class="arrow">
+                ‹
+            </div>
 
         </a>
 
@@ -1351,7 +1488,9 @@ body.secret .secret-mode{
 
             <div class="text">
 
-                <strong>واتساپ</strong>
+                <strong>
+                    واتساپ
+                </strong>
 
                 <small>
                     پیام در واتساپ
@@ -1359,7 +1498,9 @@ body.secret .secret-mode{
 
             </div>
 
-            <div class="arrow">‹</div>
+            <div class="arrow">
+                ‹
+            </div>
 
         </a>
 
@@ -1378,7 +1519,9 @@ body.secret .secret-mode{
 
             <div class="text">
 
-                <strong>ایمیل</strong>
+                <strong>
+                    ایمیل
+                </strong>
 
                 <small>
                     amirgk005@gmail.com
@@ -1386,20 +1529,28 @@ body.secret .secret-mode{
 
             </div>
 
-            <div class="arrow">‹</div>
+            <div class="arrow">
+                ‹
+            </div>
 
         </a>
 
     </div>
 
 
-    <!-- QUICK ACTIONS -->
+    <!-- ================= QUICK ACTIONS ================= -->
 
     <div class="quick">
 
+
+        <!-- COPY PHONE -->
+
         <button
             class="quick-btn"
-            onclick="copyText('+989962053197','شماره تلفن')">
+            onclick="copyText(
+                '+989962053197',
+                'شماره تلفن'
+            )">
 
             <i class="fa-regular fa-copy"></i>
 
@@ -1407,6 +1558,8 @@ body.secret .secret-mode{
 
         </button>
 
+
+        <!-- SAVE CONTACT -->
 
         <button
             class="quick-btn"
@@ -1418,6 +1571,8 @@ body.secret .secret-mode{
 
         </button>
 
+
+        <!-- SHARE -->
 
         <button
             class="quick-btn"
@@ -1432,9 +1587,12 @@ body.secret .secret-mode{
     </div>
 
 
-    <!-- EXTRA ACTIONS -->
+    <!-- ================= EXTRA ACTIONS ================= -->
 
     <div class="extra-actions">
+
+
+        <!-- QR -->
 
         <button
             class="extra-btn"
@@ -1446,6 +1604,8 @@ body.secret .secret-mode{
 
         </button>
 
+
+        <!-- INSTALL -->
 
         <button
             class="extra-btn"
@@ -1460,7 +1620,7 @@ body.secret .secret-mode{
     </div>
 
 
-    <!-- NFC -->
+    <!-- ================= NFC ================= -->
 
     <div class="nfc">
 
@@ -1471,7 +1631,7 @@ body.secret .secret-mode{
     </div>
 
 
-    <!-- FOLLOW -->
+    <!-- ================= FOLLOW ================= -->
 
     <div class="follow">
 
@@ -1484,10 +1644,12 @@ body.secret .secret-mode{
 
         <div class="socials">
 
+
             <a
                 class="social"
                 href="https://instagram.com/_amirgk"
-                target="_blank">
+                target="_blank"
+                rel="noopener">
 
                 <i class="fa-brands fa-instagram"></i>
 
@@ -1497,7 +1659,8 @@ body.secret .secret-mode{
             <a
                 class="social"
                 href="https://t.me/Am_xo_ir"
-                target="_blank">
+                target="_blank"
+                rel="noopener">
 
                 <i class="fa-brands fa-telegram"></i>
 
@@ -1507,7 +1670,8 @@ body.secret .secret-mode{
             <a
                 class="social"
                 href="https://x.com/"
-                target="_blank">
+                target="_blank"
+                rel="noopener">
 
                 <i class="fa-brands fa-x-twitter"></i>
 
@@ -1518,6 +1682,8 @@ body.secret .secret-mode{
     </div>
 
 
+    <!-- FOOTER -->
+
     <div class="footer">
 
         AMIRALI ASGHARI © 2026
@@ -1527,7 +1693,7 @@ body.secret .secret-mode{
 </main>
 
 
-<!-- SECRET MODAL -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
@@ -1546,32 +1712,9 @@ body.secret .secret-mode{
 
         <div class="modal-title">
 
-            <i class="fa-solid fa-user-secret"></i>
+            <i class="fa-solid fa-qrcode"></i>
 
-            SECRET ACCESS
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <strong>
-
-                <i class="fa-solid fa-fingerprint"></i>
-
-                DIGITAL ID
-
-            </strong>
-
-            <p>
-
-                AMIRALI ASGHARI
-                <br>
-                ACCESS LEVEL: PREMIUM
-                <br>
-                STATUS: ONLINE
-
-            </p>
+            QR CODE
 
         </div>
 
@@ -1580,32 +1723,13 @@ body.secret .secret-mode{
 
             <strong>
 
-                <i class="fa-solid fa-qrcode"></i>
+                <i class="fa-solid fa-link"></i>
 
-                MY QR CODE
+                MY WEBSITE
 
             </strong>
 
             <div id="qrcode"></div>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <strong>
-
-                <i class="fa-solid fa-terminal"></i>
-
-                SYSTEM
-
-            </strong>
-
-            <p id="systemInfo">
-
-                Initializing...
-
-            </p>
 
         </div>
 
@@ -1622,9 +1746,125 @@ body.secret .secret-mode{
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ================= SUPABASE ================= */
+const SUPABASE_URL = "https://wchbuouuhofanxtscscv.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_LIIAZGqNVsiEcNeq3Pk89Q_aknPnNwN";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+async function loadSiteData(){
+    try{
+        const { data, error } = await supabaseClient
+            .from("site_settings")
+            .select("*")
+            .eq("id", 1)
+            .single();
+
+        if(error){
+            console.error("Supabase Error:", error);
+            return;
+        }
+
+        if(!data) return;
+
+        /* NAME */
+        if(data.name){
+            document.title = data.name;
+            const h1 = document.querySelector("h1");
+            if(h1){
+                const parts = data.name.trim().split(/\s+/);
+                const first = parts.shift() || "";
+                const last = parts.join(" ");
+                h1.innerHTML = last
+                    ? `${first} <span>${last}</span>`
+                    : first;
+            }
+        }
+
+        /* SUBTITLE */
+        if(data.subtitle){
+            const el = document.querySelector(".subtitle");
+            if(el) el.textContent = data.subtitle;
+        }
+
+        /* PHONE */
+        const phone = document.querySelector('a[href^="tel:"]');
+        if(phone && data.phone){
+            phone.href = "tel:" + data.phone;
+            const small = phone.querySelector("small");
+            if(small) small.textContent = data.phone;
+        }
+
+        /* INSTAGRAM */
+        const instagram = document.querySelector('a[href*="instagram.com"]');
+        if(instagram && data.instagram){
+            instagram.href = data.instagram;
+            const small = instagram.querySelector("small");
+            if(small) small.textContent = data.instagram.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+        }
+
+        /* TELEGRAM */
+        const telegram = document.querySelector('a[href*="t.me"]');
+        if(telegram && data.telegram){
+            telegram.href = data.telegram;
+            const small = telegram.querySelector("small");
+            if(small) small.textContent = data.telegram.replace(/^https?:\/\//, "").replace(/\/$/, "");
+        }
+
+        /* WHATSAPP */
+        const whatsapp = document.querySelector('a[href*="wa.me"]');
+        if(whatsapp && data.whatsapp){
+            whatsapp.href = data.whatsapp;
+            const small = whatsapp.querySelector("small");
+            if(small) small.textContent = "پیام در واتساپ";
+        }
+
+        /* EMAIL */
+        const email = document.querySelector('a[href^="mailto:"]');
+        if(email && data.email){
+            email.href = "mailto:" + data.email;
+            const small = email.querySelector("small");
+            if(small) small.textContent = data.email;
+        }
+
+        /* PROFILE IMAGE */
+        const profile = document.querySelector(".profile img");
+        if(profile && data.profile_image){
+            profile.src = data.profile_image;
+        }
+
+        window.siteData = data;
+        updateQuickActions(data);
+
+    }catch(err){
+        console.error("Supabase connection error:", err);
+    }
+}
+
+function updateQuickActions(data){
+    if(!data) return;
+
+    const copyPhone = document.querySelector('.quick-btn[onclick*="copyText"]');
+    if(copyPhone && data.phone){
+        copyPhone.setAttribute(
+            "onclick",
+            `copyText(${JSON.stringify(data.phone)}, 'شماره تلفن')`
+        );
+    }
+}
+
+loadSiteData();
+</script>
+
 <script>
 
-/* STARS */
+/* ================= STARS ================= */
 
 const stars =
 document.getElementById("stars");
@@ -1632,7 +1872,7 @@ document.getElementById("stars");
 for(let i=0;i<40;i++){
 
     const star =
-    document.createElement("div");
+        document.createElement("div");
 
     star.className="star";
 
@@ -1652,47 +1892,7 @@ for(let i=0;i<40;i++){
 }
 
 
-/* TOUCH LIGHT */
-
-const light =
-document.querySelector(".touch-light");
-
-function moveLight(x,y){
-
-    light.style.left=x+"px";
-    light.style.top=y+"px";
-
-}
-
-document.addEventListener(
-    "mousemove",
-    e=>{
-        moveLight(
-            e.clientX,
-            e.clientY
-        );
-    }
-);
-
-document.addEventListener(
-    "touchmove",
-    e=>{
-
-        if(e.touches.length){
-
-            moveLight(
-                e.touches[0].clientX,
-                e.touches[0].clientY
-            );
-
-        }
-
-    },
-    {passive:true}
-);
-
-
-/* 3D */
+/* ================= 3D CARD ================= */
 
 const card =
 document.getElementById("card");
@@ -1717,7 +1917,7 @@ document.addEventListener(
 );
 
 
-/* MAGNETIC BUTTONS */
+/* ================= MAGNETIC BUTTONS ================= */
 
 document
 .querySelectorAll(".btn")
@@ -1734,32 +1934,38 @@ document
                 btn.getBoundingClientRect();
 
             const x =
-                e.clientX-
-                rect.left-
+                e.clientX -
+                rect.left -
                 rect.width/2;
 
             const y =
-                e.clientY-
-                rect.top-
+                e.clientY -
+                rect.top -
                 rect.height/2;
 
-            btn.style.transform=
-                `translate(${x*.025}px,${y*.025}px)`;
+            btn.style.transform =
+                `translate(
+                    ${x*.025}px,
+                    ${y*.025}px
+                )`;
 
         }
     );
 
+
     btn.addEventListener(
         "mouseleave",
         ()=>{
+
             btn.style.transform="";
+
         }
     );
 
 });
 
 
-/* RIPPLE */
+/* ================= RIPPLE ================= */
 
 document
 .querySelectorAll(
@@ -1775,8 +1981,11 @@ document
                 getComputedStyle(this)
                 .position==="static"
             ){
+
                 this.style.position="relative";
+
             }
+
 
             const rect =
                 this.getBoundingClientRect();
@@ -1791,28 +2000,51 @@ document
                 );
 
             ripple.style.position="absolute";
-            ripple.style.width=size+"px";
-            ripple.style.height=size+"px";
+
+            ripple.style.width =
+                size+"px";
+
+            ripple.style.height =
+                size+"px";
+
             ripple.style.borderRadius="50%";
-            ripple.style.background=
+
+            ripple.style.background =
                 "rgba(255,255,255,.18)";
-            ripple.style.left=
-                (e.clientX-rect.left-size/2)+"px";
-            ripple.style.top=
-                (e.clientY-rect.top-size/2)+"px";
+
+            ripple.style.left =
+                (
+                    e.clientX -
+                    rect.left -
+                    size/2
+                )+"px";
+
+            ripple.style.top =
+                (
+                    e.clientY -
+                    rect.top -
+                    size/2
+                )+"px";
+
             ripple.style.pointerEvents="none";
+
             ripple.style.transform="scale(0)";
-            ripple.style.transition=
+
+            ripple.style.transition =
                 "transform .6s,opacity .6s";
 
             this.appendChild(ripple);
 
+
             requestAnimationFrame(()=>{
 
-                ripple.style.transform="scale(2)";
+                ripple.style.transform =
+                    "scale(2)";
+
                 ripple.style.opacity="0";
 
             });
+
 
             setTimeout(
                 ()=>ripple.remove(),
@@ -1825,7 +2057,7 @@ document
 });
 
 
-/* COPY */
+/* ================= COPY ================= */
 
 function copyText(text,label){
 
@@ -1850,7 +2082,7 @@ function copyText(text,label){
 }
 
 
-/* SAVE CONTACT */
+/* ================= SAVE CONTACT ================= */
 
 function saveContact(){
 
@@ -1867,7 +2099,9 @@ END:VCARD`;
     const blob =
         new Blob(
             [vcard],
-            {type:"text/vcard"}
+            {
+                type:"text/vcard"
+            }
         );
 
     const url =
@@ -1878,7 +2112,7 @@ END:VCARD`;
 
     a.href=url;
 
-    a.download=
+    a.download =
         "Amirali-Asghari.vcf";
 
     a.click();
@@ -1888,10 +2122,11 @@ END:VCARD`;
     showToast(
         "مخاطب آماده ذخیره شد ✓"
     );
+
 }
 
 
-/* SHARE */
+/* ================= SHARE ================= */
 
 async function sharePage(){
 
@@ -1922,10 +2157,11 @@ async function sharePage(){
         );
 
     }
+
 }
 
 
-/* QR */
+/* ================= QR ================= */
 
 function openQR(){
 
@@ -1936,12 +2172,8 @@ function openQR(){
 
     generateQR();
 
-    document
-        .getElementById("systemInfo")
-        .innerHTML=
-        "QR CODE READY ✓";
-
 }
+
 
 function generateQR(){
 
@@ -1950,20 +2182,22 @@ function generateQR(){
 
     box.innerHTML="";
 
+
     const img =
         document.createElement("img");
 
-    img.src=
+    img.src =
         "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+
         encodeURIComponent(location.href);
 
     img.alt="QR Code";
 
     box.appendChild(img);
+
 }
 
 
-/* INSTALL */
+/* ================= INSTALL ================= */
 
 function showInstallInfo(){
 
@@ -1974,93 +2208,28 @@ function showInstallInfo(){
 }
 
 
-/* SECRET MODE - 3 TAPS */
-
-const profile =
-document.getElementById("profile");
-
-const secretModal =
-document.getElementById("secretModal");
-
-let taps=0;
-let tapTimer;
-
-profile.addEventListener(
-    "click",
-    ()=>{
-
-        taps++;
-
-        clearTimeout(tapTimer);
-
-        tapTimer=setTimeout(
-            ()=>{
-                taps=0;
-            },
-            1000
-        );
-
-        if(taps===3){
-
-            taps=0;
-
-            openSecret();
-
-        }
-
-    }
-);
-
-
-/* OPEN SECRET */
-
-function openSecret(){
-
-    document.body
-        .classList
-        .add("secret");
-
-    secretModal
-        .classList
-        .add("show");
-
-    generateQR();
-
-    document
-        .getElementById("systemInfo")
-        .innerHTML=
-        `
-        DEVICE: ${navigator.userAgent.substring(0,50)}
-        <br>
-        SCREEN: ${window.innerWidth} × ${window.innerHeight}
-        <br>
-        LANGUAGE: ${navigator.language}
-        <br>
-        CONNECTION: ONLINE
-        `;
-
-}
-
-
-/* CLOSE MODAL */
+/* ================= CLOSE MODAL ================= */
 
 function closeModal(){
 
-    secretModal
+    document
+        .getElementById("secretModal")
         .classList
         .remove("show");
 
-    document.body
-        .classList
-        .remove("secret");
-
 }
 
-secretModal.addEventListener(
+
+document
+.getElementById("secretModal")
+.addEventListener(
     "click",
     e=>{
 
-        if(e.target===secretModal){
+        if(
+            e.target ===
+            document.getElementById("secretModal")
+        ){
 
             closeModal();
 
@@ -2070,23 +2239,7 @@ secretModal.addEventListener(
 );
 
 
-/* ESC */
-
-document.addEventListener(
-    "keydown",
-    e=>{
-
-        if(e.key==="Escape"){
-
-            closeModal();
-
-        }
-
-    }
-);
-
-
-/* VIBRATION */
+/* ================= VIBRATION ================= */
 
 document
 .querySelectorAll(
@@ -2110,7 +2263,7 @@ document
 });
 
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 function showToast(message){
 
@@ -2125,11 +2278,13 @@ function showToast(message){
         window.toastTimer
     );
 
-    window.toastTimer=
+    window.toastTimer =
         setTimeout(
             ()=>{
+
                 toast.classList
                     .remove("show");
+
             },
             2200
         );
